@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 from django.contrib.auth.models import User
 
 
@@ -12,6 +13,13 @@ class Tag(models.Model):
         blank=False,
     )
 
+    slug = models.SlugField(max_length=200, unique=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return self.name
 
@@ -24,8 +32,6 @@ class Collection(models.Model):
     name = models.CharField(max_length=100, unique=True)
     edited_on = models.DateTimeField(auto_now_add=True)
     excerpt = models.TextField(blank=True)
-    # featured_image = models.ImageField(upload_to='collection_images/', blank=True, null=True)
-    # book_count = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.name
