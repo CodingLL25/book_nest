@@ -29,9 +29,24 @@ class Collection(models.Model):
     Stores a single collection related to :model:`auth.User`.
     """
 
+    THEME_CHOICES = [
+        ("romance", "Romance"),
+        ("fantasy", "Fantasy"),
+        ("mystery", "Mystery"),
+        ("historical", "Historical"),
+        ("thriller", "Thriller"),
+        ("science_fiction", "Science Fiction"),
+        ("nonfiction", "Nonfiction"),
+        ("young_adult", "Young Adult"),
+        ("literary", "Literary Fiction"),
+        ("horror", "Horror"),
+        ("mixed", "Mixed theme"),
+    ]
+
     name = models.CharField(max_length=100, unique=True)
     edited_on = models.DateTimeField(auto_now_add=True)
     excerpt = models.TextField(blank=True)
+    theme = models.CharField(max_length=50, choices=THEME_CHOICES, default="NA")
 
     def __str__(self):
         return self.name
