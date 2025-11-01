@@ -2,7 +2,20 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-# Create your models here.
+class Tag(models.Model):
+    """Tag model"""
+
+    name = models.CharField(
+        max_length=100,
+        null=False,
+        unique=True,
+        blank=False,
+    )
+
+    def __str__(self):
+        return self.name
+
+
 class Collection(models.Model):
     """
     Stores a single collection related to :model:`auth.User`.
@@ -11,8 +24,11 @@ class Collection(models.Model):
     name = models.CharField(max_length=100, unique=True)
     edited_on = models.DateTimeField(auto_now_add=True)
     excerpt = models.TextField(blank=True)
-    # add featured image?
-    # add book number?
+    # featured_image = models.ImageField(upload_to='collection_images/', blank=True, null=True)
+    # book_count = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return self.name
 
 
 class Book(models.Model):
@@ -22,28 +38,14 @@ class Book(models.Model):
     """
 
     collection = models.ForeignKey(
-        Collection, on_delete=models.CASCADE, related_name="comments"
+        Collection, on_delete=models.CASCADE, related_name="books"
     )
-    title = models.TextField(max_length=200)
-    author = models.TextField(max_length=100)
-    body = models.TextField(max_length=500)
+    title = models.CharField(max_length=200)
+    author = models.CharField(max_length=100)
+    body = models.TextField()
     finished = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
+    tag = models.ManyToManyField(Tag)
 
-
-# Taken directly from e-commerce from Iuliia - E-commerce
-class Tag(models.Model):
-    """Tag model"""
-
-    name = models.CharField(
-        max_length=100,
-        null=False,
-        unique=True,
-        blank=False,
-        verbose_name="Tag name",
-        help_text="format: required, max_length=100",
-    )
-
-    is_active = models.BooleanField(
-        default=False,
-    )
+    def __str__(self):
+        return self.title
