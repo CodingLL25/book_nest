@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views import generic
+from .models import Collection
 
 
 # Create your views here.
-def my_library(request):
-    return HttpResponse("Test")
+class CollectionList(generic.ListView):
+    model = Collection

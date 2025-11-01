@@ -16,10 +16,9 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
-from library.views import my_library
+from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("library/", my_library, name="library"),
+    path("", include("library.urls"), name="library-urls"),
 ]
