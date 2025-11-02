@@ -40,13 +40,17 @@ class Collection(models.Model):
         ("young_adult", "Young Adult"),
         ("literary", "Literary Fiction"),
         ("horror", "Horror"),
+        ("self_development", "Self Development"),
         ("mixed", "Mixed theme"),
     ]
 
     name = models.CharField(max_length=100, unique=True)
     edited_on = models.DateTimeField(auto_now_add=True)
     excerpt = models.TextField(blank=True)
-    theme = models.CharField(max_length=50, choices=THEME_CHOICES, default="NA")
+    theme = models.CharField(max_length=50, choices=THEME_CHOICES, default="mixed")
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="collections", null=True
+    )
 
     def __str__(self):
         return self.name
@@ -67,6 +71,9 @@ class Book(models.Model):
     finished = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
     tag = models.ManyToManyField(Tag)
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="books", null=True
+    )
 
     def __str__(self):
         return self.title
