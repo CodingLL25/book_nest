@@ -13,7 +13,7 @@ class Tag(models.Model):
         blank=False,
     )
 
-    slug = models.SlugField(max_length=200, unique=True, blank=True)
+    slug = models.SlugField(max_length=200, blank=True, unique=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -44,7 +44,7 @@ class Collection(models.Model):
         ("mixed", "Mixed theme"),
     ]
 
-    name = models.CharField(max_length=100, unique=True)
+    name = models.CharField(max_length=100, unique=True, blank=False)
     edited_on = models.DateTimeField(auto_now_add=True)
     excerpt = models.TextField(blank=True)
     theme = models.CharField(max_length=50, choices=THEME_CHOICES, default="mixed")
@@ -65,15 +65,12 @@ class Book(models.Model):
     collection = models.ForeignKey(
         Collection, on_delete=models.CASCADE, related_name="books"
     )
-    title = models.CharField(max_length=200)
-    author = models.CharField(max_length=100)
+    title = models.CharField(max_length=200, unique=True, blank=False)
+    author = models.CharField(max_length=100, blank=False)
     body = models.TextField()
     finished = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
     tag = models.ManyToManyField(Tag)
-    user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="books", null=True
-    )
 
     def __str__(self):
         return self.title
