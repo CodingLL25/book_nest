@@ -1,0 +1,411 @@
+[{
+        "model": "library.book",
+        "pk": 101,
+        "fields": {
+            "collection": 1,
+            "title": "The Flatshare",
+            "author": "Beth O'Leary",
+            "body": "Two strangers share a flat and a bed on opposite schedules, leaving notes that spark an unexpected romance. A quirky and heartfelt story about healing and connection.",
+            "finished": true,
+            "created_on": "2025-11-02T10:15:00Z",
+            "tag": [1, 3]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 102,
+        "fields": {
+            "collection": 1,
+            "title": "The Switch",
+            "author": "Beth O'Leary",
+            "body": "A grandmother and granddaughter swap lives for two months, discovering love and purpose in unexpected places. A charming tale of reinvention and family bonds.",
+            "finished": true,
+            "created_on": "2025-11-03T11:20:00Z",
+            "tag": [29, 30]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 103,
+        "fields": {
+            "collection": 1,
+            "title": "Rachel's Holiday",
+            "author": "Marian Keyes",
+            "body": "Rachel checks into rehab thinking it's a vacation, but soon confronts the truth about her addiction. A witty and emotional journey of self-discovery.",
+            "finished": true,
+            "created_on": "2025-11-04T09:45:00Z",
+            "tag": [6]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 104,
+        "fields": {
+            "collection": 1,
+            "title": "Grown Ups",
+            "author": "Marian Keyes",
+            "body": "A glamorous family hides secrets beneath their polished surface, unraveling during a dramatic dinner party. A sharp and funny look at modern relationships.",
+            "finished": true,
+            "created_on": "2025-11-05T13:30:00Z",
+            "tag": [6, 29]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 105,
+        "fields": {
+            "collection": 1,
+            "title": "It Ends With Us",
+            "author": "Colleen Hoover",
+            "body": "Lily falls for a charming neurosurgeon, but her past resurfaces in painful ways. A powerful story about love, resilience, and breaking cycles of abuse.",
+            "finished": true,
+            "created_on": "2025-11-06T15:10:00Z",
+            "tag": [2, 3]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 106,
+        "fields": {
+            "collection": 1,
+            "title": "Reminders of Him",
+            "author": "Colleen Hoover",
+            "body": "After serving time for a tragic mistake, Kenna returns to reconnect with her daughter and face the man she once loved. A tender story of redemption and hope.",
+            "finished": true,
+            "created_on": "2025-11-07T08:55:00Z",
+            "tag": [2, 3, 6]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 107,
+        "fields": {
+            "collection": 1,
+            "title": "Book Lovers",
+            "author": "Emily Henry",
+            "body": "A literary agent and editor clash in a small town, only to discover they might be perfect for each other. A witty romance full of bookish banter.",
+            "finished": true,
+            "created_on": "2025-11-08T12:00:00Z",
+            "tag": [4, 30]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 108,
+        "fields": {
+            "collection": 1,
+            "title": "Twisted Love",
+            "author": "Ana Huang",
+            "body": "Alex has a dark past and Ava is the sunshine in his life — but secrets threaten their bond. A steamy romance with emotional depth and suspense.",
+            "finished": true,
+            "created_on": "2025-11-09T14:40:00Z",
+            "tag": [1, 5, 20]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 109,
+        "fields": {
+            "collection": 1,
+            "title": "The Spanish Love Deception",
+            "author": "Elena Armas",
+            "body": "A fake date to a wedding in Spain turns into something real between two colleagues. A slow-burn romance with humor and heart.",
+            "finished": true,
+            "created_on": "2025-11-10T16:25:00Z",
+            "tag": [1, 4, 5]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 110,
+        "fields": {
+            "collection": 1,
+            "title": "Things We Never Got Over",
+            "author": "Lucy Score",
+            "body": "Naomi escapes her life and lands in a small town with a grumpy local and a niece she didn’t expect. A heartfelt enemies-to-lovers romance.",
+            "finished": true,
+            "created_on": "2025-11-11T10:10:00Z",
+            "tag": [6]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 111,
+        "fields": {
+            "collection": 1,
+            "title": "Archer's Voice",
+            "author": "Mia Sheridan",
+            "body": "Bree moves to a quiet town and meets Archer, a silent man with a painful past. A deeply emotional love story about healing and trust.",
+            "finished": true,
+            "created_on": "2025-11-12T09:00:00Z",
+            "tag": [2, 4, 6]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 112,
+        "fields": {
+            "collection": 1,
+            "title": "November 9",
+            "author": "Colleen Hoover",
+            "body": "Fallon and Ben meet once a year on November 9, but secrets threaten their connection. A unique and emotional romance with a twist.",
+            "finished": true,
+            "created_on": "2025-11-13T11:45:00Z",
+            "tag": [6, 20, 3]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 201,
+        "fields": {
+            "collection": 2,
+            "title": "Think Twice",
+            "author": "Harlan Coben",
+            "body": "A gripping thriller where secrets unravel and identities blur, forcing characters to confront deadly truths.",
+            "finished": true,
+            "created_on": "2025-11-02T09:00:00Z",
+            "tag": [20]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 202,
+        "fields": {
+            "collection": 2,
+            "title": "The Midnight Line",
+            "author": "Lee Child",
+            "body": "Jack Reacher follows a trail from a pawn shop ring to a dark conspiracy in the American heartland.",
+            "finished": true,
+            "created_on": "2025-11-03T10:15:00Z",
+            "tag": [19]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 203,
+        "fields": {
+            "collection": 2,
+            "title": "Blue Moon",
+            "author": "Lee Child",
+            "body": "Reacher takes on corrupt forces to protect an elderly couple, delivering justice with his signature grit.",
+            "finished": true,
+            "created_on": "2025-11-04T11:30:00Z",
+            "tag": [19]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 204,
+        "fields": {
+            "collection": 2,
+            "title": "The Institute",
+            "author": "Stephen King",
+            "body": "Children with special powers are imprisoned in a sinister facility, and one boy dares to escape.",
+            "finished": true,
+            "created_on": "2025-11-05T12:45:00Z",
+            "tag": [18]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 205,
+        "fields": {
+            "collection": 2,
+            "title": "Billy Summers",
+            "author": "Stephen King",
+            "body": "A hitman with a moral code takes one last job, but nothing goes according to plan.",
+            "finished": true,
+            "created_on": "2025-11-06T14:00:00Z",
+            "tag": [10]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 206,
+        "fields": {
+            "collection": 2,
+            "title": "Verity",
+            "author": "Colleen Hoover",
+            "body": "A writer uncovers disturbing secrets in a manuscript that blurs the line between fiction and reality.",
+            "finished": true,
+            "created_on": "2025-11-07T15:15:00Z",
+            "tag": [20, 5, 6]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 207,
+        "fields": {
+            "collection": 2,
+            "title": "Naked in Death",
+            "author": "J.D. Robb",
+            "body": "In a futuristic New York, detective Eve Dallas investigates a high-profile murder with romantic entanglements.",
+            "finished": true,
+            "created_on": "2025-11-08T16:30:00Z",
+            "tag": [15, 19, 5]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 208,
+        "fields": {
+            "collection": 2,
+            "title": "Spellbound in His Arms",
+            "author": "Angel Sefer",
+            "body": "A journalist uncovers a deadly conspiracy while falling for a mysterious investigator in Greece.",
+            "finished": true,
+            "created_on": "2025-11-09T17:45:00Z",
+            "tag": [15, 6, 4]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 209,
+        "fields": {
+            "collection": 2,
+            "title": "Deadly Secrets",
+            "author": "Angel Sefer",
+            "body": "Dark family secrets and romantic suspense collide on a picturesque Greek island.",
+            "finished": true,
+            "created_on": "2025-11-10T18:00:00Z",
+            "tag": [20, 15, 6]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 210,
+        "fields": {
+            "collection": 2,
+            "title": "Framed For Murder",
+            "author": "Marla A. White",
+            "body": "A Hollywood script consultant becomes the prime suspect in a real-life murder mystery.",
+            "finished": true,
+            "created_on": "2025-11-11T19:15:00Z",
+            "tag": [15, 19, 1]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 301,
+        "fields": {
+            "collection": 3,
+            "title": "Surrounded by Idiots",
+            "author": "Thomas Erikson",
+            "body": "A guide to understanding personality types and improving communication in everyday life.",
+            "finished": true,
+            "created_on": "2025-11-02T09:00:00Z",
+            "tag": [25, 26]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 302,
+        "fields": {
+            "collection": 3,
+            "title": "Surrounded by Psychopaths",
+            "author": "Thomas Erikson",
+            "body": "Learn how to spot manipulative behavior and protect yourself from toxic influence.",
+            "finished": true,
+            "created_on": "2025-11-03T10:15:00Z",
+            "tag": [25]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 303,
+        "fields": {
+            "collection": 3,
+            "title": "The Culture Map",
+            "author": "Erin Meyer",
+            "body": "Explore how cultural differences shape global business and communication strategies.",
+            "finished": true,
+            "created_on": "2025-11-04T11:30:00Z",
+            "tag": [25, 22, 24]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 304,
+        "fields": {
+            "collection": 3,
+            "title": "No Rules Rules",
+            "author": "Erin Meyer",
+            "body": "A behind-the-scenes look at Netflix’s radical culture and leadership principles.",
+            "finished": true,
+            "created_on": "2025-11-05T12:45:00Z",
+            "tag": [23]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 305,
+        "fields": {
+            "collection": 3,
+            "title": "Gifts Differing",
+            "author": "Isabel Briggs Myers",
+            "body": "An exploration of personality types and how they influence our lives and relationships.",
+            "finished": true,
+            "created_on": "2025-11-06T14:00:00Z",
+            "tag": [25]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 306,
+        "fields": {
+            "collection": 3,
+            "title": "Atomic Habits",
+            "author": "James Clear",
+            "body": "Discover how small changes lead to remarkable results through habit formation.",
+            "finished": true,
+            "created_on": "2025-11-07T15:15:00Z",
+            "tag": [21, 26, 29]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 307,
+        "fields": {
+            "collection": 3,
+            "title": "The 7 Habits of Highly Effective People",
+            "author": "Stephen R. Covey",
+            "body": "A timeless framework for personal growth, leadership, and productivity.",
+            "finished": true,
+            "created_on": "2025-11-08T16:30:00Z",
+            "tag": [21, 24, 25]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 308,
+        "fields": {
+            "collection": 3,
+            "title": "How to Win Friends and Influence People",
+            "author": "Dale Carnegie",
+            "body": "Classic advice on building relationships and mastering interpersonal skills.",
+            "finished": true,
+            "created_on": "2025-11-09T17:45:00Z",
+            "tag": [28, 25, 24]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 309,
+        "fields": {
+            "collection": 3,
+            "title": "The Power of Now",
+            "author": "Eckhart Tolle",
+            "body": "A spiritual guide to living in the present and finding peace within.",
+            "finished": true,
+            "created_on": "2025-11-10T18:00:00Z",
+            "tag": [26, 21, 29]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 310,
+        "fields": {
+            "collection": 3,
+            "title": "Think and Grow Rich",
+            "author": "Napoleon Hill",
+            "body": "A motivational classic on achieving success through mindset and persistence.",
+            "finished": true,
+            "created_on": "2025-11-11T19:15:00Z",
+            "tag": [22, 24, 21]
+        }
+    }, {
+        "model": "library.book",
+        "pk": 311,
+        "fields": {
+            "collection": 3,
+            "title": "She Who Wins",
+            "author": "Renée C. Bauer",
+            "body": "Empowering women to embrace change, take risks, and live boldly.",
+            "finished": true,
+            "created_on": "2025-11-12T20:30:00Z",
+            "tag": [2, 21, 24]
+        }
+    },
+    {
+        "model": "library.book",
+        "pk": 312,
+        "fields": {
+            "collection": 3,
+            "title": "You Are a Badass",
+            "author": "Jen Sincero",
+            "body": "A humorous and inspiring guide to self-confidence and personal transformation.",
+            "finished": true,
+            "created_on": "2025-11-13T21:45:00Z",
+            "tag": [21, 25, 29]
+        }
+    }
+]

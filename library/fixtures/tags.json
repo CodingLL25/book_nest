@@ -1,6 +1,6 @@
 [{
         "model": "library.tag",
-        "pk": null,
+        "pk": 1,
         "fields": {
             "name": "Enemies to lover",
             "slug": "enemies-to-lover"
@@ -8,7 +8,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 2,
         "fields": {
             "name": "Self-worth",
             "slug": "self-worth"
@@ -16,7 +16,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 3,
         "fields": {
             "name": "Young love",
             "slug": "young-love"
@@ -24,7 +24,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 4,
         "fields": {
             "name": "Slow burner",
             "slug": "slow-burner"
@@ -32,7 +32,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 5,
         "fields": {
             "name": "Smut",
             "slug": "smut"
@@ -40,7 +40,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 6,
         "fields": {
             "name": "second-chances",
             "slug": "second-chances"
@@ -48,7 +48,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 7,
         "fields": {
             "name": "Sword and Sorcery",
             "slug": "sword-and-sorcery"
@@ -56,7 +56,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 8,
         "fields": {
             "name": "Fairytale",
             "slug": "fairytale"
@@ -64,7 +64,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 9,
         "fields": {
             "name": "War and military",
             "slug": "war-and-military"
@@ -72,7 +72,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 10,
         "fields": {
             "name": "Mercenaryy",
             "slug": "mercenary"
@@ -80,7 +80,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 11,
         "fields": {
             "name": "Spy and Espionage",
             "slug": "spy-and-espionage"
@@ -88,7 +88,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 12,
         "fields": {
             "name": "Martial arts",
             "slug": "martial-arts"
@@ -96,7 +96,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 13,
         "fields": {
             "name": "Magic",
             "slug": "magic"
@@ -104,7 +104,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 14,
         "fields": {
             "name": "Superhero",
             "slug": "superhero"
@@ -112,7 +112,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 15,
         "fields": {
             "name": "Whodunit",
             "slug": "whodunit"
@@ -120,7 +120,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 16,
         "fields": {
             "name": "European",
             "slug": "european"
@@ -128,7 +128,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 17,
         "fields": {
             "name": "Paranormal",
             "slug": "paranormal"
@@ -136,7 +136,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 18,
         "fields": {
             "name": "Supernatural",
             "slug": "supernatural"
@@ -144,7 +144,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 19,
         "fields": {
             "name": "Justice",
             "slug": "justice"
@@ -152,7 +152,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 20,
         "fields": {
             "name": "Secrets and lies",
             "slug": "secrets-and-lies"
@@ -160,7 +160,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 21,
         "fields": {
             "name": "Personal development",
             "slug": "personal-development"
@@ -168,7 +168,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 22,
         "fields": {
             "name": "Finance",
             "slug": "finance"
@@ -176,7 +176,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 23,
         "fields": {
             "name": "Risk",
             "slug": "risk"
@@ -184,7 +184,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 24,
         "fields": {
             "name": "Career or leadership",
             "slug": "career-or-leadership"
@@ -192,7 +192,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 25,
         "fields": {
             "name": "Personality traits",
             "slug": "personality-traits"
@@ -200,7 +200,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 26,
         "fields": {
             "name": "Mindfulness",
             "slug": "mindfulness"
@@ -208,7 +208,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 27,
         "fields": {
             "name": "Health and Wellness",
             "slug": "health-and-wellness"
@@ -216,7 +216,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 28,
         "fields": {
             "name": "Relationships and Communication",
             "slug": "relationships-and-communication"
@@ -224,7 +224,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 29,
         "fields": {
             "name": "Feel good",
             "slug": "feel-good"
@@ -232,7 +232,7 @@
     },
     {
         "model": "library.tag",
-        "pk": null,
+        "pk": 30,
         "fields": {
             "name": "Funny",
             "slug": "funny"

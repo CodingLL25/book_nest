@@ -1,0 +1,28 @@
+[{
+        "model": "library.collection",
+        "pk": 1,
+        "fields": {
+            "name": "Whirlwind summer",
+            "excerpt": "Sun-drenched stories, breezy adventures, and unforgettable characters—this collection is your perfect companion for lazy afternoons and golden sunsets. Dive in and let summer unfold one page at a time",
+            "theme": "Romance"
+        }
+    },
+    {
+        "model": "library.collection",
+        "pk": 2,
+        "fields": {
+            "name": "Motive and Mayhem",
+            "excerpt": "Dark motives. Twisted plots. Motive and Mayhem delivers sharp suspense and chilling revelations in every story.",
+            "theme": "Mystery"
+        }
+    },
+    {
+        "model": "library.collection",
+        "pk": 3,
+        "fields": {
+            "name": "Time to grow",
+            "excerpt": "My self-development journey.",
+            "theme": "Self development"
+        }
+    }
+]
