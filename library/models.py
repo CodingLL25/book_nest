@@ -45,7 +45,6 @@ class Collection(models.Model):
     ]
 
     name = models.CharField(max_length=100, unique=True, blank=False)
-    edited_on = models.DateTimeField(auto_now_add=True)
     excerpt = models.TextField(blank=True)
     theme = models.CharField(max_length=50, choices=THEME_CHOICES, default="mixed")
     user = models.ForeignKey(
