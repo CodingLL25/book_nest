@@ -2,6 +2,18 @@ from django.contrib import admin
 from .models import Collection, Book, Tag
 from django_summernote.admin import SummernoteModelAdmin
 from django.contrib.admin import SimpleListFilter
+from django.utils.html import strip_tags
+import re
+
+
+# Function to clean HTML added
+def clean_html(value):
+    if not value:
+        return ""
+    # Remove empty <p> tags and &nbsp;
+    value = re.sub(r"<p[^>]*>\s*(?:&nbsp;|\s)*</p>", "", value)
+    value = re.sub(r"&nbsp;", " ", value)
+    return strip_tags(value).strip()
 
 
 class TagFilter(SimpleListFilter):
@@ -20,20 +32,28 @@ class TagFilter(SimpleListFilter):
 @admin.register(Collection)
 class Collection(SummernoteModelAdmin):
 
-    list_display = ("name", "theme", "excerpt")
+    list_display = ("name", "theme", "excerpt_clean")
     search_fields = ["theme", "excerpt"]
     list_filter = (TagFilter, "theme")
     summernote_fields = ("excerpt",)
+
+    @admin.display(description="excerpt")
+    def excerpt_clean(self, obj):
+        return clean_html(obj.excerpt)
 
 
 # error with filtering the book by tag
 @admin.register(Book)
 class Book(SummernoteModelAdmin):
 
-    list_display = ("title", "author", "body")
+    list_display = ("title", "author", "body_clean")
     search_fields = ["title", "author"]
     list_filter = ["author"]
     summernote_fields = ("body",)
+
+    @admin.display(description="body")
+    def body_clean(self, obj):
+        return clean_html(obj.body)
 
 
 # Register your models here.
