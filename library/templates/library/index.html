@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- index.html content starts here -->
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- Collection Entries Column -->
+        <div class="container mt-4">
+            <div class="row">
+                {% for collection in collection_list %}
+                <div class="col-12 col-sm-6 col-md-4 mb-4">
+                    <div class="card border-dark h-100" style="max-width: 24rem;">
+                        <div class="card-header">Collection:</div>
+                        <div class="card-body text-dark">
+                            <h5 class="card-title">
+                                <a href="#" class="Collection">{{ collection.name }}</a>
+                            </h5>
+                            <p class="card-text">{{ collection.excerpt }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:6 %}
+            </div>
+
+            <div class="row">
+                {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+    <!--Navigating through collections -->
+    {% if is_paginated %}
+    <nav aria-label="...">
+        <ul class="pagination">
+            <!--Check if there is a previous page -->
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            </li>
+            {% else %}
+            <!--Disbale previous button if no previous page -->
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+            {% endif %}
+
+            <li class="page-item active">
+                <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
+            </li>
+
+            <!--Show next button if there is another page -->
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+
+<!-- index.html content ends here -->
+{% endblock %}
