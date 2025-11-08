@@ -5,4 +5,6 @@ from .models import Collection
 
 # Create your views here.
 class CollectionList(generic.ListView):
-    model = Collection
+    queryset = Collection.objects.all()
+    template_name = "library/index.html"
+    paginate_by = 4
