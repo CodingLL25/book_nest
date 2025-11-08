@@ -7,4 +7,4 @@ from .models import Collection
 class CollectionList(generic.ListView):
     queryset = Collection.objects.all()
     template_name = "library/index.html"
-    paginate_by = 4
+    paginate_by = 6
