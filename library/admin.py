@@ -2,19 +2,6 @@ from django.contrib import admin
 from .models import Collection, Book, Tag
 from django_summernote.admin import SummernoteModelAdmin
 from django.contrib.admin import SimpleListFilter
-from django.utils.html import strip_tags
-import re
-
-
-# Function to clean HTML added
-@register.filter(name="clean_html")
-def clean_html(value):
-    if not value:
-        return ""
-    # Remove empty <p> tags and &nbsp;
-    value = re.sub(r"<p[^>]*>\s*(?:&nbsp;|\s)*</p>", "", value)
-    value = re.sub(r"&nbsp;", " ", value)
-    return strip_tags(value).strip()
 
 
 class TagFilter(SimpleListFilter):
