@@ -7,6 +7,7 @@ import re
 
 
 # Function to clean HTML added
+@register.filter(name="clean_html")
 def clean_html(value):
     if not value:
         return ""
