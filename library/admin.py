@@ -26,6 +26,15 @@ class Collection(SummernoteModelAdmin):
     summernote_fields = ("excerpt",)
 
 
+# error with filtering the book by tag
+@admin.register(Book)
+class Book(SummernoteModelAdmin):
+
+    list_display = ("title", "author", "body")
+    search_fields = ["title", "author"]
+    list_filter = ["author"]
+    summernote_fields = ("body",)
+
+
 # Register your models here.
-admin.site.register(Book)
 admin.site.register(Tag)
