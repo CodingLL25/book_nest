@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load html_filters %}
-
+{% load crispy_forms_tags %}
 {% block content %}
 
 <!-- index.html content starts here -->
@@ -12,7 +12,7 @@
             <div class="row">
                 {% for collection in collection_list %}
                 <div class="col-12 col-sm-6 col-md-4 mb-4">
-                    <div class="card border-dark h-100" style="max-width: 24rem;">
+                    <div class="card border-dark h-100">
                         <div class="card-header">Collection:</div>
                         <div class="card-body text-dark">
                             <h5 class="card-title">

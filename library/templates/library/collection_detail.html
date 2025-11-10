@@ -3,12 +3,13 @@
 
 {% block content %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 <div class="container mt-4">
     <!-- Book Entries Column -->
     <div class="row justify-content-center">
         {% for book in books %}
-        <div class="card border-light mb-3" style="max-width: 18rem;">
+        <div class="card border-light mb-3">
             <div class="card-header">Book by: {{ book.author }}</div>
             <div class="card-body">
                 <h5 class="card-title">{{ book.title}} </h5>
