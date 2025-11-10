@@ -16,7 +16,8 @@
                         <div class="card-header">Collection:</div>
                         <div class="card-body text-dark">
                             <h5 class="card-title">
-                                <a href="#" class="Collection">{{ collection.name }}</a>
+                                <a href="{% url 'collection_detail' collection.slug %}"
+                                    class="post-link">{{ collection.name }}</a>
                             </h5>
                             <p class="card-text">{{ collection.excerpt|clean_html }}</p>
                         </div>
@@ -50,6 +51,7 @@
             {% endif %}
 
             <li class="page-item active">
+                <!--ERROR always shows as one - needs to be fixed -->
                 <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
             </li>
 
