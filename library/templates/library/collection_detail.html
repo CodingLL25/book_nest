@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load html_filters %}
+
+{% block content %}
+{% load static %}
+
+<div class="row">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-md-6">
+                <!-- Book title goes in these h1 tags -->
+                <h1 class="book-title">{{ book.title }}</h1>
+                <!-- Book author -->
+                <p class="book-subtitle">{{ book.author }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

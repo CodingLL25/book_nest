@@ -2,6 +2,11 @@ from django.contrib import admin
 from .models import Collection, Book, Tag
 from django_summernote.admin import SummernoteModelAdmin
 from django.contrib.admin import SimpleListFilter
+from django.utils.html import strip_tags
+
+
+def clean_html(text):
+    return strip_tags(text)
 
 
 class TagFilter(SimpleListFilter):
@@ -36,7 +41,7 @@ class Book(SummernoteModelAdmin):
 
     list_display = ("title", "author", "body_clean")
     search_fields = ["title", "author"]
-    list_filter = ["author"]
+    list_filter = (TagFilter, "author")
     summernote_fields = ("body",)
 
     @admin.display(description="body")
