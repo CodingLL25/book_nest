@@ -51,6 +51,13 @@ class Collection(models.Model):
         User, on_delete=models.CASCADE, related_name="collections", null=True
     )
 
+    slug = models.SlugField(max_length=200, blank=True, unique=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return self.name
 
