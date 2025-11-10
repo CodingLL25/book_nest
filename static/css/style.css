@@ -1,0 +1,45 @@
+/* Google fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Macondo&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* CSS variables*/
+:root {
+    /*--variable-name */
+    --primary-font: "Oswald", sans-serif;
+    --primary-color: #333E3D;
+    --secondary-color: #D6D1CA;
+    --highlight: #A89382;
+    --light-highlight: #D97E47;
+    --bright-highlight: #A04F2F;
+}
+
+/* General styles */
+body {
+    min-height: 100vh;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    font-family: var(--primary-font);
+    margin: 0;
+    overflow-x: hidden;
+    overflow-wrap: anywhere;
+}
+
+main {
+    /* Main element to take up any surplus space to push footer down */
+    flex: 1 0 auto;
+    max-width: 1399px;
+    margin: auto;
+    position: relative;
+}
+
+/* Base.html style */
+.navbar {
+    width: 100%;
+    background-color: var(--highlight);
+}
+
+.footer {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: white;
+}
