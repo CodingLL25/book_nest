@@ -18,9 +18,9 @@
                     </form>
                 </div>
                 {% for collection in collection_list %}
-                <div class="col-12 col-sm-6 col-md-4 mb-4">
+                <div class="collection-holder col-12 col-sm-6 col-md-4 mb-4">
                     <div class="card border-dark h-100">
-                        <div class="card-header">Collection:</div>
+                        <div class="card-header">Collection by: {{ collection.user }}</div>
                         <div class="card-body text-dark">
                             <h5 class="card-title">
                                 <a href="{% url 'collection_detail' collection.slug %}"

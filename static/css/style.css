@@ -43,3 +43,14 @@ main {
     background-color: var(--primary-color);
     color: white;
 }
+
+.holder {
+    max-width: 18rem;
+}
+.holder {
+    max-width: 18rem;
+}
+
+.card-title {
+    color: var(--primary-color);
+}
