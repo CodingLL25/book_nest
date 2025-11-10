@@ -4,17 +4,23 @@
 {% block content %}
 {% load static %}
 
-<div class="row">
-    <div class="container">
-        <div class="row g-0">
-            <div class="col-md-6">
-                <!-- Book title goes in these h1 tags -->
-                <h1 class="book-title">{{ book.title }}</h1>
-                <!-- Book author -->
-                <p class="book-subtitle">{{ book.author }}</p>
+<div class="container mt-4">
+    <!-- Book Entries Column -->
+    <div class="row justify-content-center">
+        {% for book in books %}
+        <div class="card border-light mb-3" style="max-width: 18rem;">
+            <div class="card-header">Book by: {{ book.author }}</div>
+            <div class="card-body">
+                <h5 class="card-title">{{ book.title}} </h5>
+                <p class="card-text"> {{ book.body | clean_html }}</p>
+                <!-- Book tag not working -->
+                <p class="card-tags"> {{ book.tag}}</p>
             </div>
         </div>
+        {% endfor%}
     </div>
 </div>
+
+
 
 {% endblock content %}

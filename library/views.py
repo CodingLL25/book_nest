@@ -5,6 +5,10 @@ from .models import Collection
 
 # Create your views here.
 class CollectionList(generic.ListView):
+    """
+    ADD DESCRIPTION WHEN CLEANING UP CODE
+    """
+
     queryset = Collection.objects.all().order_by("id")
 
     template_name = "library/index.html"
@@ -13,20 +17,17 @@ class CollectionList(generic.ListView):
 
 def collection_detail(request, slug):
     """
-    Display collection.Book`.
-
-    **Context**
-
-    ``post``
-        An instance of :model:`collection.Book`.
-
+    ADD DESCRIPTION WHEN CLEANING UP CODE
     """
-
     queryset = Collection.objects.all().order_by("id")
     collection = get_object_or_404(queryset, slug=slug)
+    books = collection.books.all()
 
     return render(
         request,
         "library/collection_detail.html",
-        {"collection": collection},
+        {
+            "collection": collection,
+            "books": books,
+        },
     )
