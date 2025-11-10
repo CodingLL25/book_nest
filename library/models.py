@@ -76,7 +76,7 @@ class Book(models.Model):
     body = models.TextField()
     finished = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
-    tag = models.ManyToManyField(Tag)
+    tag = models.ManyToManyField(Tag, related_name="books")
 
     def __str__(self):
         return self.title
