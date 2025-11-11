@@ -1,4 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseForbidden
 from django.views import generic
 from .models import Collection
 from .forms import CollectionForm, BookForm
@@ -60,6 +62,11 @@ def add_book_to_collection(request, collection_id):
     """
     collection = get_object_or_404(Collection, id=collection_id)
 
+    if collection.user != request.user:
+        return HttpResponseForbidden(
+            "You are not allowed to add books to this collection."
+        )
+
     if request.method == "POST":
         form = BookForm(request.POST)
         if form.is_valid():
@@ -78,3 +85,18 @@ def add_book_to_collection(request, collection_id):
             "collection": collection,
         },
     )
+
+
+@login_required
+def delete_collection(request, slug):
+    collection = get_object_or_404(Collection, slug=slug)
+
+    if collection.user != request.user:
+        return HttpResponseForbidden("You are not allowed to delete this collection.")
+
+    if request.method == "POST":
+        collection.delete()
+        return redirect("index.html")  # Change to your desired redirect
+
+    # Optional: render a confirmation page
+    return render(request, "collection_confirm_delete.html", {"collection": collection})
