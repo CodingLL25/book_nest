@@ -33,7 +33,7 @@
         <!-- Collection Entry Form -->
         {% if user.is_authenticated %}
         <div class="row">
-            <div class="">
+            <div class="new-collection">
                 <h4>Create a New Collection</h4>
                 <form method="post" action="{% url 'create_collection' %}">
                     {% csrf_token %}
