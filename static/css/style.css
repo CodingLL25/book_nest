@@ -44,9 +44,10 @@ main {
     color: white;
 }
 
-.holder {
-    max-width: 18rem;
+.collection-holder {
+    max-width: 24rem;
 }
+
 .holder {
     max-width: 18rem;
 }
