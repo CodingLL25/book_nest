@@ -1,48 +1,50 @@
 {% extends 'base.html' %}
 {% load html_filters %}
-
-{% block content %}
 {% load static %}
 {% load crispy_forms_tags %}
 
+{% block content %}
 <div class="container mt-4">
     <!-- Book Entries Column -->
     <div class="row justify-content-center">
+        {% if books %}
         {% for book in books %}
         <div class="card holder border-light mb-3">
             <div class="card-header">Book by: {{ book.author }}</div>
             <div class="card-body">
                 <h5 class="card-title">{{ book.title}} </h5>
                 <p class="card-text"> {{ book.body | clean_html }}</p>
-                <!-- Book tag not working -->
-                <p class="card-tags"> {{ book.tag}}</p>
             </div>
         </div>
         {% endfor%}
-
-        <div class="row justify-content-center">
-            {% if user.is_authenticated and user == collection.user %}
-            <h4>Add a book to your collection</h4>
-            <form method="post" action="{% url 'add_book' collection.id %}">
-                {% csrf_token %}
-                {{ form|crispy }}
-                <button type="submit" class="btn btn-primary">Add Book</button>
-            </form>
-            {% endif %}
-
-            {% if user == collection.user %}
-            <h4>Delete this collection</h4>
-            <form method="post" action="{% url 'collection_delete' collection.slug %}">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-danger btn-sm"
-                    onclick="return confirm('Are you sure you want to delete this collection?');">
-                    Delete
-                </button>
-            </form>
-            {% endif %}
-        </div>
+        {% else %}
+        <p>No books in this collection yet.</p>
+        {% endif %}
     </div>
 
 
+    <div class="action-forms">
+        {% if collection and user.is_authenticated and user == collection.user %}
+        <!-- Add Book Form -->
+        <h4>Add a book to your collection</h4>
+        <form method="post" action="{% url 'add_book' collection.id %}">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-primary">Add Book</button>
+        </form>
 
-    {% endblock content %}
+        <!-- Delete Collection -->
+        <h4>Delete this collection</h4>
+        <form method="post" action="{% url 'collection_delete' collection.slug %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger btn-sm"
+                onclick="return confirm('Are you sure you want to delete this collection?');">
+                Delete
+            </button>
+        </form>
+        {% endif %}
+
+    </div>
+</div>
+
+{% endblock content %}
