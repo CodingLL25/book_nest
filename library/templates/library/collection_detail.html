@@ -23,7 +23,7 @@
         {% for book in books %}
         <div class="card holder border-light mb-3">
             {% if collection and user.is_authenticated and user == collection.user %}
-            <a href="{% url 'edit_book' slug=collection.slug book_id=book.id %}" book_id=" {{ book.id}}" {% endif %}>
+            <a href="{% url 'edit_book' slug=collection.slug book_id=book.id %}" book_id=" {{ book.id}}" {% endif %}
                 class="btn btn-edit"><i class="fa-solid fa-pen-to-square"></i></a>
             <div class="card-header"> Book by: {{ book.author }}</div>
             <div class="card-body">
