@@ -1,5 +1,5 @@
 from . import views
-from .views import add_book_to_collection, delete_collection, edit_book
+from .views import add_book_to_collection, delete_collection, edit_book, delete_book
 
 from django.urls import path, include
 
@@ -21,6 +21,11 @@ urlpatterns = [
         "collection/<slug:slug>/book/<int:book_id>/edit_book/",
         views.edit_book,
         name="edit_book",
+    ),
+    path(
+        "collection/<slug:slug>/book/<int:book_id>/delete_book/",
+        views.delete_book,
+        name="delete_book",
     ),
     path("collection/<slug:slug>/", views.collection_detail, name="collection_detail"),
 ]
