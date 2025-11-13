@@ -23,15 +23,16 @@
         {% for book in books %}
         <div class="card holder border-light mb-3">
             {% if collection and user.is_authenticated and user == collection.user %}
-            {% url 'delete_collection' collection.slug %}
-            <button class="btn btn-edit" book_id="{{ book.id }}">Edit</button>
-            {% endif %}
-            {% endif %}
-            <div class="card-header">Book by: {{ book.author }}</div>
+            <div class="card-header">
+                Book by: {{ book.author }}
+                <a href="{% url 'edit_book' slug=collection.slug book_id=book.id %}" book_id=" {{ book.id}}"
+                    class="btn btn-edit"><i class="fa-solid fa-pen-to-square"></i></a>
+            </div>
             <div class="card-body">
                 <h5 class="card-title">{{ book.title}} </h5>
                 <p class="card-text"> {{ book.body | clean_html }}</p>
             </div>
+            {% endif %}
         </div>
         {% endfor%}
         {% else %}
@@ -56,3 +57,8 @@
 
 
 {% endblock content %}
+
+
+{% block extras %}
+<script src="{% static 'js/book_edit.js' %}"></script>
+{% endblock %}
