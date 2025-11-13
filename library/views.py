@@ -47,8 +47,9 @@ def create_collection(request):
     if request.method == "POST":
         form = CollectionForm(request.POST)
         if form.is_valid():
-            collection = form.save()
-            # Redirect to the new (empty) collection’s page
+            collection = form.save(commit=False)
+            collection.user = request.user
+            collection.save()
             return redirect("collection_detail", slug=collection.slug)
     else:
         form = CollectionForm()
@@ -56,11 +57,11 @@ def create_collection(request):
     return render(request, "collection_detail.html", {"form": form})
 
 
-def add_book_to_collection(request, collection_id):
+def add_book_to_collection(request, slug):
     """
     Function to add a book to a collection
     """
-    collection = get_object_or_404(Collection, id=collection_id)
+    collection = get_object_or_404(Collection, slug=slug)
 
     if collection.user != request.user:
         return HttpResponseForbidden(
@@ -79,7 +80,7 @@ def add_book_to_collection(request, collection_id):
 
     return render(
         request,
-        "library/add_book.html",
+        "library/collection_detail.html",
         {
             "form": form,
             "collection": collection,
@@ -96,7 +97,7 @@ def delete_collection(request, slug):
 
     if request.method == "POST":
         collection.delete()
-        return redirect("index.html")  # Change to your desired redirect
+        return redirect("index.html")
 
-    # Optional: render a confirmation page
+    # Render a confirmation page
     return render(request, "collection_confirm_delete.html", {"collection": collection})
