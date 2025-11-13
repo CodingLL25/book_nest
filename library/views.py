@@ -96,7 +96,6 @@ def edit_book(request, slug, book_id):
     """
     Function to edit existing books in the collection
     """
-
     if request.method == "POST":
         queryset = Collection.objects.all()
         collection = get_object_or_404(queryset, slug=slug)
@@ -116,6 +115,9 @@ def edit_book(request, slug, book_id):
 
 @login_required
 def delete_book(request, slug, book_id):
+    """
+    Function to delete existing books in the collection
+    """
     collection = get_object_or_404(Collection, slug=slug)
     book = get_object_or_404(Book, pk=book_id)
 
@@ -129,6 +131,9 @@ def delete_book(request, slug, book_id):
 
 @login_required
 def delete_collection(request, slug):
+    """
+    Function to delete collections
+    """
     collection = get_object_or_404(Collection, slug=slug)
 
     if collection.user != request.user:
@@ -136,4 +141,4 @@ def delete_collection(request, slug):
 
     if request.method == "POST":
         collection.delete()
-        return redirect("index.html", slug=collection.slug)
+        return redirect("/")
