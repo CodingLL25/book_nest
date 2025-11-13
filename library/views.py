@@ -98,7 +98,8 @@ def edit_book(request, slug, book_id):
     """
 
     if request.method == "POST":
-        collection = get_object_or_404(Collection, slug=slug)
+        queryset = Collection.objects.all()
+        collection = get_object_or_404(queryset, slug=slug)
         book = get_object_or_404(Book, pk=book_id)
         book_form = BookForm(data=request.POST, instance=book)
 
@@ -114,6 +115,19 @@ def edit_book(request, slug, book_id):
 
 
 @login_required
+def delete_book(request, slug, book_id):
+    collection = get_object_or_404(Collection, slug=slug)
+    book = get_object_or_404(Book, pk=book_id)
+
+    if collection.user != request.user:
+        return HttpResponseForbidden("You are not allowed to delete this book.")
+
+    if request.method == "POST":
+        book.delete()
+        return redirect("collection_detail", slug=collection.slug)
+
+
+@login_required
 def delete_collection(request, slug):
     collection = get_object_or_404(Collection, slug=slug)
 
@@ -122,7 +136,4 @@ def delete_collection(request, slug):
 
     if request.method == "POST":
         collection.delete()
-        return redirect("index.html")
-
-    # Render a confirmation page
-    return render(request, "collection_confirm_delete.html", {"collection": collection})
+        return redirect("index.html", slug=collection.slug)
