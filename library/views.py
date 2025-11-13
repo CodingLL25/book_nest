@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseForbidden
 from django.views import generic
-from .models import Collection
+from django.contrib import messages
+from django.http import HttpResponseForbidden
+from .models import Collection, Book
 from .forms import CollectionForm, BookForm
 
 
@@ -40,6 +41,7 @@ def collection_detail(request, slug):
     )
 
 
+@login_required
 def create_collection(request):
     """
     Function to create a new collection
@@ -57,6 +59,7 @@ def create_collection(request):
     return render(request, "collection_detail.html", {"form": form})
 
 
+@login_required
 def add_book_to_collection(request, slug):
     """
     Function to add a book to a collection
@@ -86,6 +89,26 @@ def add_book_to_collection(request, slug):
             "collection": collection,
         },
     )
+
+
+@login_required
+def edit_book(request, slug, book_id):
+    """
+    Function to edit existing books in the collection
+    """
+    collection = get_object_or_404(Collection, slug=slug)
+    book = get_object_or_404(Book, pk=book_id)
+    book_form = BookForm(data=request.POST, instance=book)
+
+    if book_form.is_valid() and collection.user == request.user:
+        book = book_form.save(commit=False)
+        book.collection = collection
+        book.save()
+        messages.add_message(request, messages.SUCCESS, "Book has been updated!")
+    else:
+        messages.add_message(request, messages.ERROR, "Error updating book!")
+
+    return redirect("collection_detail", slug=collection.slug)
 
 
 @login_required
