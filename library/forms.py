@@ -15,4 +15,4 @@ class CollectionForm(forms.ModelForm):
 class BookForm(forms.ModelForm):
     class Meta:
         model = Book
-        fields = ("title", "author", "body", "tag")
+        fields = ("title", "author", "body", "finished", "tag")
