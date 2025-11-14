@@ -12,7 +12,6 @@ class Tag(models.Model):
         unique=True,
         blank=False,
     )
-
     slug = models.SlugField(max_length=200, blank=True, unique=True)
 
     def save(self, *args, **kwargs):
@@ -43,14 +42,12 @@ class Collection(models.Model):
         ("self_development", "Self Development"),
         ("mixed", "Mixed theme"),
     ]
-
     name = models.CharField(max_length=100, unique=True, blank=False)
     excerpt = models.TextField(blank=True)
     theme = models.CharField(max_length=50, choices=THEME_CHOICES, default="mixed")
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="collections", null=True
     )
-
     slug = models.SlugField(max_length=200, blank=True, unique=True)
 
     def save(self, *args, **kwargs):
