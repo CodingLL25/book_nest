@@ -9,7 +9,7 @@
     --secondary-color: #D6D1CA;
     --highlight: #A89382;
     --light-highlight: #D97E47;
-    --bright-highlight: #A04F2F;
+    --bright-highlight: #632a13;
 }
 
 /* General styles */
@@ -54,10 +54,23 @@ i {
     padding: 10px;
     text-align: center;
 }
+.account-text {
+    height: 25px;
+    padding-right: 20px;
+    text-align: right;
+}
+
 .footer {
     width: 100%;
     background-color: var(--primary-color);
     color: white;
+    text-align:  center;
+}
+
+.github {
+    text-decoration: none;
+    color: white;
+    font-size: small;
 }
 
 /* index.html style */
@@ -66,10 +79,18 @@ i {
     display: flex;
 }
 
-.card-title {
+.collection-link {
+    text-decoration: none;
     color: var(--primary-color);
 }
 
+.collection-link:hover {
+    text-decoration: none;
+    color: var(--light-highlight);
+}
+
+
+/* button styles */
 .account-button, .action-button {
     background-color: var(--secondary-color);
 }
@@ -79,8 +100,10 @@ i {
     color: white;
 }
 
-
-/* collection_detail.html style */
+/* collection_detail.html styles */
+.collection-name {
+    text-align: center;
+}
 .book-holder {
     max-width: 18rem;
     margin: 15px;

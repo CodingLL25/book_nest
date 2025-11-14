@@ -74,11 +74,11 @@
             <div class="heading">
                 <h1>Book Nest - A Cosy corner for organising your books</h1>
             </div>
-            <span>
+            <span class="account-confirmation">
                 {% if user.is_authenticated %}
-                <p class="text-end m-3">You are logged in as {{ user }}</p>
+                <p class="account-text">You are logged in as {{ user }}</p>
                 {% else %}
-                <p class="text-end m-3">You are not logged in</p>
+                <p class="account-text">You are not logged in</p>
                 {% endif %}
             </span>
         </section>
@@ -90,7 +90,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer mt-auto py-3">
+    <footer class="footer py-3">
         <p class="m-0 text-center">Made by Lauren Lee</p>
         <a class="github" href="https://github.com/CodingLL25" target="_blank"
             aria-label="Link to authors Github Page">By @CodingLL25</a>
