@@ -56,7 +56,7 @@ def create_collection(request):
     else:
         form = CollectionForm()
 
-    return render(request, "collection_detail.html", {"form": form})
+    return render(request, "library/create_collection.html", {"form": form})
 
 
 @login_required
