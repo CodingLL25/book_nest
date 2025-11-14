@@ -43,6 +43,10 @@
             <div class="card-body">
                 <h5 class="card-title">{{ book.title}} </h5>
                 <p class="card-text"> {{ book.body | clean_html }}</p>
+                </p>
+            </div>
+            <div class="card-footer">
+                <p class="card-status"> Status: {% if book.finished %} Finished {% else %} In progress {% endif%}
             </div>
         </div>
         {% endfor%}
