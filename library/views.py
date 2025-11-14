@@ -123,7 +123,6 @@ def delete_book(request, slug, book_id):
 
     if collection.user != request.user:
         return HttpResponseForbidden("You are not allowed to delete this book.")
-
     if request.method == "POST":
         book.delete()
         return redirect("collection_detail", slug=collection.slug)
@@ -138,7 +137,6 @@ def delete_collection(request, slug):
 
     if collection.user != request.user:
         return HttpResponseForbidden("You are not allowed to delete this collection.")
-
     if request.method == "POST":
         collection.delete()
         return redirect("/")
