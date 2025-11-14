@@ -28,30 +28,60 @@ main {
     /* Main element to take up any surplus space to push footer down */
     flex: 1 0 auto;
     max-width: 1399px;
-    margin: auto;
+    margin: 0% 5%;
     position: relative;
+    padding-bottom: 20px;
+}
+
+i {
+    padding: 5px;
 }
 
 /* Base.html style */
 .navbar {
+    display: flex;
     width: 100%;
     background-color: var(--highlight);
+    padding: 10px;
 }
 
+.navbar > .account-nav {
+    justify-content: right;
+}
+
+.heading {
+    background-color: var(--secondary-color);
+    padding: 10px;
+    text-align: center;
+}
 .footer {
     width: 100%;
     background-color: var(--primary-color);
     color: white;
 }
 
-.collection-holder {
-    max-width: 24rem;
-}
-
-.holder {
-    max-width: 18rem;
+/* index.html style */
+.collection-summary {
+    width: 100%;
+    display: flex;
 }
 
 .card-title {
     color: var(--primary-color);
+}
+
+.account-button, .action-button {
+    background-color: var(--secondary-color);
+}
+
+.account-button:hover, .action-button:hover {
+    background-color: var(--light-highlight);
+    color: white;
+}
+
+
+/* collection_detail.html style */
+.book-holder {
+    max-width: 18rem;
+    margin: 15px;
 }
