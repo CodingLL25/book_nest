@@ -25,7 +25,7 @@ class CollectionList(generic.ListView):
 
 def collection_detail(request, slug):
     """
-    ADD DESCRIPTION WHEN CLEANING UP CODE
+    Function to show relevant collection details for logged in user
     """
     queryset = Collection.objects.all().order_by("id")
     collection = get_object_or_404(queryset, slug=slug)
@@ -44,7 +44,7 @@ def collection_detail(request, slug):
 @login_required
 def create_collection(request):
     """
-    Function to create a new collection
+    Function to create a new collection for logged in user
     """
     if request.method == "POST":
         form = CollectionForm(request.POST)
@@ -60,9 +60,10 @@ def create_collection(request):
 
 
 @login_required
-def add_book_to_collection(request, slug):
+def add_book(request, slug):
     """
-    Function to add a book to a collection
+    Function to add a book to a collection for logged in user.
+    Only allowed to add books to their collections.
     """
     collection = get_object_or_404(Collection, slug=slug)
 
@@ -83,7 +84,7 @@ def add_book_to_collection(request, slug):
 
     return render(
         request,
-        "library/collection_detail.html",
+        "library/add_book.html",
         {
             "form": form,
             "collection": collection,
@@ -94,7 +95,8 @@ def add_book_to_collection(request, slug):
 @login_required
 def edit_book(request, slug, book_id):
     """
-    Function to edit existing books in the collection
+    Function to edit existing books in the collection.
+    Only able to edit books in their collection.
     """
     if request.method == "POST":
         queryset = Collection.objects.all()
@@ -116,7 +118,8 @@ def edit_book(request, slug, book_id):
 @login_required
 def delete_book(request, slug, book_id):
     """
-    Function to delete existing books in the collection
+    Function to delete existing books in the collection.
+    Only able to delete books in their collection.
     """
     collection = get_object_or_404(Collection, slug=slug)
     book = get_object_or_404(Book, pk=book_id)
@@ -131,7 +134,8 @@ def delete_book(request, slug, book_id):
 @login_required
 def delete_collection(request, slug):
     """
-    Function to delete collections
+    Function to delete collections.
+    Only able to delete their collection.
     """
     collection = get_object_or_404(Collection, slug=slug)
 
@@ -140,3 +144,5 @@ def delete_collection(request, slug):
     if request.method == "POST":
         collection.delete()
         return redirect("/")
+
+    return render(request, "library/delete_collection.html", {"collection": collection})
