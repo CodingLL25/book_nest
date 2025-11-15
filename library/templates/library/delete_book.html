@@ -4,9 +4,32 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<form method="post" class="collection-form">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <button type="submit" class="btn action-button"></button>
-</form>
+<div class="collection-name">
+    <h2>{{ collection.name }}</h2>
+    <p>Remove book from this collection: {{ book.title }} by {{ book.author }}</p>
+</div>
+
+<div class="container mt-5">
+    <div class="modal show d-block" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirm Delete: {{ book.title }}</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete <strong>{{ book.title }}</strong> in
+                        this collection ({{ collection.name }})? This action cannot be undone.</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="{% url 'collection_detail' collection.slug %}" class="btn btn-secondary">Cancel</a>
+                    <form method="post" action="{% url 'delete_collection' collection.slug %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
