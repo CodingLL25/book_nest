@@ -10,6 +10,7 @@
     --highlight: #A89382;
     --light-highlight: #D97E47;
     --bright-highlight: #632a13;
+    --danger: rgb(131, 21, 21);
 }
 
 /* General styles */
@@ -33,10 +34,6 @@ main {
     padding-bottom: 20px;
 }
 
-i {
-    padding: 5px;
-}
-
 /* Base.html style */
 .navbar {
     display: flex;
@@ -49,11 +46,12 @@ i {
     justify-content: right;
 }
 
-.heading {
+.heading, .action-form {
     background-color: rgba(214, 209, 202, 0.35);
     padding: 10px;
     text-align: center;
 }
+
 .account-text {
     height: 25px;
     padding-right: 20px;
@@ -73,6 +71,19 @@ i {
     font-size: small;
 }
 
+/* button styles */
+.account-button, .action-button {
+    background-color: var(--secondary-color);
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+
+}
+
+.account-button:hover, .action-button:hover, .icon-button:hover {
+    background-color: var(--light-highlight);
+    color: white;
+}
+
 /* index.html style */
 .collection-summary {
     width: 100%;
@@ -89,30 +100,43 @@ i {
     color: var(--light-highlight);
 }
 
-/* button styles */
-.account-button, .action-button {
-    background-color: var(--secondary-color);
-}
-
-.account-button:hover, .action-button:hover {
-    background-color: var(--light-highlight);
-    color: white;
-}
-
 /* collection_detail.html styles */
 .collection-name {
+    width: 100%;
+    display: flex;
     text-align: center;
+}
+
+.book-container {
+    display: flex;
+    width: 100%;
 }
 
 .book-holder {
     max-width: 18rem;
-    margin: 15px;
 }
 
 .book-header {
+    display: flex;                  
+    justify-content: space-between; 
+    align-items: center;            
+    width: 100%;
+}
+
+.book-author {
+    margin: 0; 
+    text-align: left;
     font-size: medium;
 }
 
-.delete {
-    background-color: var(--light-highlight);
+.icon-button {
+    margin-left: auto; 
+}
+
+.book-status {
+    margin: 0;
+}
+
+.delete-icon {
+    padding: 2px 5px;   
 }
