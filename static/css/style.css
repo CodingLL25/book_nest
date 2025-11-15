@@ -104,7 +104,16 @@ i {
 .collection-name {
     text-align: center;
 }
+
 .book-holder {
     max-width: 18rem;
     margin: 15px;
+}
+
+.book-header {
+    font-size: medium;
+}
+
+.delete {
+    background-color: var(--light-highlight);
 }
