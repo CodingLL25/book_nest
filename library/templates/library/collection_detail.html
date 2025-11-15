@@ -27,7 +27,6 @@
                 Delete this collection <i class="fa-solid fa-delete-left icon"></i>
             </a>
         </div>
-
         {% endif %}
     </div>
 </section>
@@ -41,13 +40,14 @@
             <div class="book-header">
                 <h3 class="card-header book-header">
                     Book by: {{ book.author }}
-                    <!-- Delete Book in Collection -->
-                    <a href="{% url 'delete_book' slug=collection.slug book_id=book.id %}"
-                        aria-label="Go to the page for deleting this book" class="btn action-button delete">
-                        <i class="fa-solid fa-delete-left icon"></i>
+                    <!-- Edit Book in Collection -->
+                    {% if collection and user.is_authenticated and user == collection.user %}
+                    <a href="{% url 'edit_book' slug=collection.slug book_id=book.id %}"
+                        aria-label="Go to the page for editing this book" class="btn action-button edit">
+                        <i class="fa-solid fa-pen-to-square"></i>
                     </a>
+                    {% endif %}
                 </h3>
-
             </div>
             <div class="card-body book-main">
                 <h5 class="card-title book-title">{{ book.title}} </h5>
@@ -55,12 +55,19 @@
                 </p>
             </div>
             <div class="card-footer">
-                <p class="card-status"> Status: {% if book.finished %} Finished {% else %} In progress {% endif%}</a>
+                <p class="card-status"> Status: {% if book.finished %} Finished {% else %} In progress {% endif%}</p>
+                <!-- Delete Book in Collection -->
+                {% if collection and user.is_authenticated and user == collection.user %}
+                <a href="{% url 'delete_book' slug=collection.slug book_id=book.id %}"
+                    aria-label="Go to the page for deleting this book" class="btn action-button delete">
+                    <i class="fa-solid fa-delete-left icon"></i>
+                </a>
+                {% endif %}
             </div>
         </div>
         {% endfor%}
         {% else %}
-        <p>No books in this collection yet.</p> <!-- Showing for "add book" -->
+        <p>No books in this collection yet.</p>
         {% endif %}
     </div>
 </section>

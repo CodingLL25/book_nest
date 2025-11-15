@@ -94,25 +94,35 @@ def add_book(request, slug):
 
 @login_required
 def edit_book(request, slug, book_id):
-    """
-    Function to edit existing books in the collection.
-    Only able to edit books in their collection.
-    """
-    if request.method == "POST":
-        queryset = Collection.objects.all()
-        collection = get_object_or_404(queryset, slug=slug)
-        book = get_object_or_404(Book, pk=book_id)
-        book_form = BookForm(data=request.POST, instance=book)
+    collection = get_object_or_404(Collection, slug=slug)
+    book = get_object_or_404(Book, pk=book_id)
 
-        if book_form.is_valid() and collection.user == request.user:
+    if collection.user != request.user:
+        return HttpResponseForbidden(
+            "You are not allowed to edit books in this collection."
+        )
+
+    if request.method == "POST":
+        book_form = BookForm(request.POST, instance=book)
+        if book_form.is_valid():
             book = book_form.save(commit=False)
             book.collection = collection
             book.save()
-            messages.add_message(request, messages.SUCCESS, "Book has been updated!")
-        else:
-            messages.add_message(request, messages.ERROR, "Error updating book!")
+            book_form.save_m2m()
+            messages.success(request, "Book has been updated!")
+            return redirect("collection_detail", slug=slug)
+    else:
+        book_form = BookForm(instance=book)
 
-    return HttpResponseRedirect(reverse("collection_detail", args=[slug]))
+    return render(
+        request,
+        "library/edit_book.html",
+        {
+            "book_form": book_form,
+            "collection": collection,
+            "book": book,
+        },
+    )
 
 
 @login_required
