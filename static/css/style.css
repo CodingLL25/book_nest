@@ -6,7 +6,7 @@
     /*--variable-name */
     --primary-font: "Oswald", sans-serif;
     --primary-color: #333E3D;
-    --secondary-color: #D6D1CA;
+    --secondary-color: rgb(214, 209, 202);
     --highlight: #A89382;
     --light-highlight: #D97E47;
     --bright-highlight: #632a13;
@@ -50,7 +50,7 @@ i {
 }
 
 .heading {
-    background-color: var(--secondary-color);
+    background-color: rgba(214, 209, 202, 0.35);
     padding: 10px;
     text-align: center;
 }
@@ -88,7 +88,6 @@ i {
     text-decoration: none;
     color: var(--light-highlight);
 }
-
 
 /* button styles */
 .account-button, .action-button {

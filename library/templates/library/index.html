@@ -9,12 +9,13 @@
     <p> An overivew of your collections</p>
 </div>
 
-<section class="container-fluid">
+<section class="container-fluid heading">
     <!-- Collection Entry Form -->
     {% if user.is_authenticated %}
     <div class="action-form create-collection">
-        <a href="{% url 'create_collection' %}" aria-label="Go to the form for creating a collection" class="create">
-            <button type="submit" class="btn action-button">Create a new collection</button>
+        <a href="{% url 'create_collection' %}" aria-label="Go to the form for creating a collection">
+            <button type="submit" class="btn create"><i class="fa-solid fa-pen-to-square"></i>Create a new
+                collection</button>
         </a>
     </div>
     {% endif %}

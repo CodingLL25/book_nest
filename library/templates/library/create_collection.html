@@ -5,10 +5,12 @@
 
 {% block content %}
 <div class="collection-name">
-    <h2>Create a new collection</h2>
+    <h2>New collection</h2>
+    <p>Time to add a new collection to your library</p>
 </div>
 
 <form method="post" class="collection-form">
+    <h3 class="edit-book heading">Create collection</h3>
     {% csrf_token %}
     {{ form|crispy }}
     <button type="submit" class="btn action-button">Add collection</button>

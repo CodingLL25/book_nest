@@ -11,6 +11,7 @@
 </div>
 
 <form method="post" class="book-form">
+    <h3 class="edit-book heading">Add a book</h3>
     {% csrf_token %}
     {{ form|crispy }}
     <button type="submit" class="btn action-button">Add book to collection</button>
