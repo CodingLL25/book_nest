@@ -130,6 +130,15 @@ def delete_book(request, slug, book_id):
         book.delete()
         return redirect("collection_detail", slug=collection.slug)
 
+    return render(
+        request,
+        "library/delete_book.html",
+        {
+            "collection": collection,
+            "book": book,
+        },
+    )
+
 
 @login_required
 def delete_collection(request, slug):
