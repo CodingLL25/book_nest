@@ -12,9 +12,9 @@
 <section class="container-fluid heading">
     <!-- Collection Entry Form -->
     {% if user.is_authenticated %}
-    <div class="action-form create-collection">
+    <div class="form create-collection">
         <a href="{% url 'create_collection' %}" aria-label="Go to the form for creating a collection">
-            <button type="submit" class="btn create"><i class="fa-solid fa-pen-to-square"></i>Create a new
+            <button type="submit" class="btn icon-button"><i class="fa-solid fa-pen-to-square"></i> Create a new
                 collection</button>
         </a>
     </div>
@@ -31,9 +31,9 @@
             {% endif %}
             <div class="collection-holder col-12 col-sm-6 col-md-4 mb-4">
                 <div class="collection-card card border-dark h-100">
-                    <div class="collection-card card-header">Collection by: {{ collection.user }}</div>
-                    <div class="collection-card card-body text-dark">
-                        <h5 class="collection-card card-title">
+                    <div class="collection-user card-header">Collection by: {{ collection.user }}</div>
+                    <div class="collection-main card-body text-dark">
+                        <h5 class="collection-name card-title">
                             <a href="{% url 'collection_detail' collection.slug %}"
                                 class="collection-link">{{ collection.name }}</a>
                         </h5>
