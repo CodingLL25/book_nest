@@ -4,6 +4,10 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+<div class="collection-name">
+    <h2>Create a new collection</h2>
+</div>
+
 <form method="post" class="collection-form">
     {% csrf_token %}
     {{ form|crispy }}

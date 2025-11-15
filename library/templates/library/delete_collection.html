@@ -4,6 +4,11 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+<div class="collection-name">
+    <h2>{{ collection.name }}</h2>
+    <p>Delete your collection</p>
+</div>
+
 <div class="container mt-5">
     <div class="modal show d-block" tabindex="-1">
         <div class="modal-dialog">
