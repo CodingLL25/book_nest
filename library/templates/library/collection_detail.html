@@ -4,44 +4,58 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+
+<div class="collection-name">
+    <h2>{{ collection.name }}</h2>
+    <p> {{ collection.excerpt }}</p>
+</div>
+
 <section class="action-form">
     <div class="row">
         {% if collection and user.is_authenticated and user == collection.user %}
         <!-- Add Book Form -->
         <div class="add-book col-md-6">
             <a href="{% url 'add_book' collection.slug %}"
-                aria-label="Go to the page for adding a book to this collection" class="add">
-                <button type="submit" class="btn action-button">Add a book to your collection<i
-                        class="fa-solid fa-plus"></i></button>
+                aria-label="Go to the page for adding a book to this collection" class="btn action-button add">
+                Add a book to your collection <i class="fa-solid fa-plus"></i>
             </a>
         </div>
         <!-- Delete Collection -->
         <div class="delete-collection col-md-6">
             <a href="{% url 'delete_collection' collection.slug %}"
-                aria-label="Go to the page for deleting this collection" class="delete">
-                <button type="submit" class="btn action-button">Delete this collection<i
-                        class="fa-solid fa-delete-left icon"></i></button>
+                aria-label="Go to the page for deleting this collection" class="btn action-button delete">
+                Delete this collection <i class="fa-solid fa-delete-left icon"></i>
             </a>
         </div>
+
         {% endif %}
     </div>
 </section>
 
 <section class="book-continer container mt-4">
-    <h2 class="collection-name">Collection: {{ collection.name }}</h2>
     <!-- Book Entries Column -->
     <div class="row justify-content-center">
         {% if books %}
         {% for book in books %}
         <div class="card book-holder border-light mb-3">
-            <div class="card-header"> Book by: {{ book.author }}</div>
-            <div class="card-body">
-                <h5 class="card-title">{{ book.title}} </h5>
-                <p class="card-text"> {{ book.body | clean_html }}</p>
+            <div class="book-header">
+                <h3 class="card-header book-header">
+                    Book by: {{ book.author }}
+                    <!-- Delete Book in Collection -->
+                    <a href="{% url 'delete_book' slug=collection.slug book_id=book.id %}"
+                        aria-label="Go to the page for deleting this book" class="btn action-button delete">
+                        <i class="fa-solid fa-delete-left icon"></i>
+                    </a>
+                </h3>
+
+            </div>
+            <div class="card-body book-main">
+                <h5 class="card-title book-title">{{ book.title}} </h5>
+                <p class="card-text book-body"> {{ book.body | clean_html }}</p>
                 </p>
             </div>
             <div class="card-footer">
-                <p class="card-status"> Status: {% if book.finished %} Finished {% else %} In progress {% endif%}
+                <p class="card-status"> Status: {% if book.finished %} Finished {% else %} In progress {% endif%}</a>
             </div>
         </div>
         {% endfor%}
