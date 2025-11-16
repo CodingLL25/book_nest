@@ -53,6 +53,9 @@
                         </h4>
                         <p class="card-text collection-excerpt">{{ collection.excerpt|clean_html }}</p>
                     </div>
+                    <div class="card-footer collection-footer">
+                        <small class="text-muted">Collection theme: {{ collection.get_theme_display }}</small>
+                    </div>
                 </div>
             </div>
             {% if forloop.counter|divisibleby:3 or forloop.last %}
