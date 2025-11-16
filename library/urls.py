@@ -1,5 +1,5 @@
 from . import views
-from .views import add_book, delete_collection, edit_book, delete_book
+from .views import edit_collection, add_book, delete_collection, edit_book, delete_book
 
 from django.urls import path, include
 
@@ -7,6 +7,11 @@ urlpatterns = [
     path("", views.CollectionList.as_view(), name="home"),
     path("accounts/", include("allauth.urls")),
     path("create/", views.create_collection, name="create_collection"),
+    path(
+        "collection/<slug:slug>/edit_collection/",
+        views.edit_collection,
+        name="edit_collection",
+    ),
     path(
         "collection/<slug:slug>/add_book/",
         views.add_book,
