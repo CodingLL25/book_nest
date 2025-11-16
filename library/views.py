@@ -210,6 +210,6 @@ def delete_collection(request, slug):
         return HttpResponseForbidden("You are not allowed to delete this collection.")
     if request.method == "POST":
         collection.delete()
-        return redirect("/")
+        return redirect("collections")
 
     return render(request, "library/delete_collection.html", {"collection": collection})

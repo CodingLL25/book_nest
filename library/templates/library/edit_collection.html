@@ -16,7 +16,7 @@
         {% csrf_token %}
         {{ collection_form|crispy }}
         <div class="student__buttons">
-            <a href="{% url 'home' %}" aria-label="Go to back to collection page"
+            <a href="{% url 'collections' %}" aria-label="Go to back to collection page"
                 class="btn action-button cancel">Cancel
             </a>
             <button type="submit" class="btn action-button confirm">
