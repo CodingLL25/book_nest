@@ -7,8 +7,9 @@
     --primary-font: "Oswald", sans-serif;
     --primary-color: #333E3D;
     --secondary-color: rgb(214, 209, 202);
+    --tertiary-color: rgb(65, 134, 129);
     --highlight: #A89382;
-    --light-highlight: #D97E47;
+    --light-highlight: rgb(217, 126, 71);
     --bright-highlight: #632a13;
     --danger: rgb(131, 21, 21);
 }
@@ -69,6 +70,57 @@ main {
     text-decoration: none;
     color: white;
     font-size: small;
+}
+
+
+/* about.html style */
+.overview {
+    text-align: center;
+}
+.cover-image {
+    background: url("../images/home-library.jpg") no-repeat center center/cover;
+    width: 100%;
+    height: 400px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.cover-text {
+    background-color: white;
+    text-align: center;
+    width: 100%;
+    justify-content: space-evenly;
+    padding: 5px;
+}
+
+.cover-text p {
+    margin: 0; 
+}
+
+.sign-in-button, .sign-up-button {
+    align-items: center;
+    margin: 0px 25px;
+}
+
+.sign-up-button {
+    background-color: rgba(65, 134, 129, 0.3);
+}
+
+.sign-up-button:hover {
+    background-color: rgb(65, 134, 129);
+    color: white;
+}
+
+.sign-in-button {
+    background-color: rgba(217, 126, 71, 0.3);
+}
+
+.sign-in-button:hover {
+    background-color: rgb(217, 126, 71);
+    color: white;
 }
 
 /* button styles */
