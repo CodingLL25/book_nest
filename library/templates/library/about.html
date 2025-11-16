@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="collection-name">
+    <h2>About "Book Nest"</h2>
+    <p> Welcome to your digital bookshelf — a space designed to help you easily add, edit, and organize your books and
+        collections. Keep track of your reading journey and manage your library with ease.</p>
+</div>
+
+<section class="example-collections container">
+    <div class="collection-holder">
+        <h2 class="heading">Example Collections</h2>
+        <p class="overview">Here are three example collections curated by the site owner. Have a look in each of the
+            collections to see what can be done. </p>
+        <div class="row">
+            {% for collection in example_collections %}
+            {% if collection and collection.user.username == "Example" %}
+            <div class="col-12 col-sm-6 col-md-4 mb-4">
+                <div class=" card example-collection border-dark h-100">
+                    <div class="card-body example-body">
+                        <h5 class="card-title example-name">{{ collection.name }}</h5>
+                        <p class="card-text example-excerpt">{{ collection.excerpt }}</p>
+                    </div>
+                    <div class="card-footer example-footer d-flex justify-content-end">
+                        <a href="{% url 'collection_detail' collection.slug %}" class="btn btn-sm btn-info">
+                            View Collection
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="action-forms">
+    <h2 class="heading">How to get started</h2>
+    <p class="overview">Ready to step into your digital reading corner?</p>
+    <div id="about-cover-image" class="cover-image">
+        <div id="cover-text" class="cover-text">
+            <p>
+                <a href="{% url 'account_signup' %}" class="btn sign-up-button">Sign up for an account</a>
+                <a href="{% url 'account_login' %}" class="btn sign-in-button">Sign into your account</a>
+            </p>
+        </div>
+    </div>
+</section>
+{% endblock %}
