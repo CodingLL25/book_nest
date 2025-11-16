@@ -74,7 +74,7 @@
         "model": "library.tag",
         "pk": 10,
         "fields": {
-            "name": "Mercenaryy",
+            "name": "Mercenary",
             "slug": "mercenary"
         }
     },
