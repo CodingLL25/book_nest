@@ -60,6 +60,35 @@ def create_collection(request):
 
 
 @login_required
+def edit_collection(request, slug):
+    collection = get_object_or_404(Collection, slug=slug)
+
+    if collection.user != request.user:
+        return HttpResponseForbidden("You are not allowed to edit this collection.")
+
+    if request.method == "POST":
+        collection_form = CollectionForm(request.POST, instance=collection)
+        if collection_form.is_valid():
+            collection = collection_form.save(commit=False)
+            collection = collection
+            collection.save()
+            collection_form.save_m2m()
+            messages.success(request, "Collection has been updated!")
+            return redirect("/")
+    else:
+        collection_form = CollectionForm(instance=collection)
+
+    return render(
+        request,
+        "library/edit_collection.html",
+        {
+            "collection_form": collection_form,
+            "collection": collection,
+        },
+    )
+
+
+@login_required
 def add_book(request, slug):
     """
     Function to add a book to a collection for logged in user.
