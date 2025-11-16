@@ -76,7 +76,6 @@ main {
     background-color: var(--secondary-color);
     cursor: pointer;
     transition: color 0.2s ease-in-out;
-
 }
 
 .account-button:hover, .action-button:hover, .icon-button:hover {
@@ -85,11 +84,6 @@ main {
 }
 
 /* index.html style */
-.collection-summary {
-    width: 100%;
-    display: flex;
-}
-
 .collection-link {
     text-decoration: none;
     color: var(--primary-color);
@@ -102,39 +96,7 @@ main {
 
 /* collection_detail.html styles */
 .collection-name {
-    width: 100%;
-    display: block;
     text-align: center;
-}
-
-.book-container {
-    display: flex;
-    width: 100%;
-}
-
-.book-holder {
-    max-width: 18rem;
-}
-
-.book-header {
-    display: flex;                  
-    justify-content: space-between; 
-    align-items: center;            
-    width: 100%;
-}
-
-.book-author {
-    margin: 0; 
-    text-align: left;
-    font-size: medium;
-}
-
-.icon-button {
-    margin-left: auto; 
-}
-
-.book-status {
-    margin: 0;
 }
 
 .delete-icon {
