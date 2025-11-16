@@ -103,7 +103,7 @@ main {
 /* collection_detail.html styles */
 .collection-name {
     width: 100%;
-    display: flex;
+    display: block;
     text-align: center;
 }
 
