@@ -6,11 +6,12 @@
 {% block content %}
 <div class="collection-name">
     <h2>{{ collection.name }}</h2>
-    <p> Edit {{ book.title }} in your collection</p>
+    <p> Edit "{{ book.title }}"" in your collection</p>
 </div>
 
 <div class="edit-book">
     <h3 class="edit-book heading">Edit book</h3>
+    <p class="guidance-text">* indicates a required field</p>
     <form method="POST" class="form">
         {% csrf_token %}
         {{ book_form|crispy }}
