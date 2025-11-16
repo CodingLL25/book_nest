@@ -45,11 +45,12 @@
                     </div>
                     <!-- Card body -->
                     <div class="card-body collection-body text-dark">
-                        <h5 class="card-title collection-name">
-                            <a href="{% url 'collection_detail' collection.slug %}" class="collection-link">
+                        <h4 class="card-title collection-name">
+                            <a href="{% url 'collection_detail' collection.slug %}" class="collection-link"
+                                title="Go to collection">
                                 {{ collection.name }}
                             </a>
-                        </h5>
+                        </h4>
                         <p class="card-text collection-excerpt">{{ collection.excerpt|clean_html }}</p>
                     </div>
                 </div>
