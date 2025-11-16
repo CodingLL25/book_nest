@@ -72,6 +72,10 @@ main {
 }
 
 /* button styles */
+.icon-button {
+    margin: 5px;
+}
+
 .account-button, .action-button {
     background-color: var(--secondary-color);
     cursor: pointer;
