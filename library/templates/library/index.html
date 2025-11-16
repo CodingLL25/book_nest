@@ -23,21 +23,34 @@
 
 <!-- Collection Entries Column -->
 <section class="collection-summary">
-    <div class="container mt-4">
-        <!-- Example collection forms -->
+    <div class="container collection-container mt-4">
         {% for collection in collection_list %}
         {% if forloop.counter0|divisibleby:3 %}
         <div class="row">
             {% endif %}
-            <div class="collection-holder col-12 col-sm-6 col-md-4 mb-4">
-                <div class="collection-card card border-dark h-100">
-                    <div class="collection-user card-header">Collection by: {{ collection.user }}</div>
-                    <div class="collection-main card-body text-dark">
-                        <h5 class="collection-name card-title">
-                            <a href="{% url 'collection_detail' collection.slug %}"
-                                class="collection-link">{{ collection.name }}</a>
+            <!-- Column wrapper -->
+            <div class="col-12 col-sm-6 col-md-4 mb-4">
+                <!-- Card -->
+                <div class="card collection border-dark h-100">
+                    <!-- Card header -->
+                    <div class="card-header collection-header d-flex justify-content-between align-items-center">
+                        <h3 class="mb-0 h5">Collection by: {{ collection.user }}</h3>
+                        {% if collection and user.is_authenticated and user == collection.user %}
+                        <a href="{% url 'edit_collection' collection.slug %}"
+                            aria-label="Go to the page for editing this collection" class="btn btn-sm icon-button"
+                            title="Edit collection">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+                        {% endif %}
+                    </div>
+                    <!-- Card body -->
+                    <div class="card-body collection-body text-dark">
+                        <h5 class="card-title collection-name">
+                            <a href="{% url 'collection_detail' collection.slug %}" class="collection-link">
+                                {{ collection.name }}
+                            </a>
                         </h5>
-                        <p class="collection-card card-text">{{ collection.excerpt|clean_html }}</p>
+                        <p class="card-text collection-excerpt">{{ collection.excerpt|clean_html }}</p>
                     </div>
                 </div>
             </div>
@@ -45,6 +58,7 @@
         </div>
         {% endif %}
         {% endfor %}
+    </div>
 </section>
 
 <!--Navigating through collections -->
