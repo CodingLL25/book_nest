@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load html_filters %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="collection-name">
+    <h2>{{ collection.name }}</h2>
+    <p> Edit "{{ collection.name }}"</p>
+</div>
+
+<div class="edit-collection">
+    <h3 class="edit-collection heading">Edit collection</h3>
+    <p class="guidance-text">* indicates a required field</p>
+    <form method="POST" class="form">
+        {% csrf_token %}
+        {{ collection_form|crispy }}
+        <div class="student__buttons">
+            <a href="{% url 'home' %}" aria-label="Go to back to collection page"
+                class="btn action-button cancel">Cancel
+            </a>
+            <button type="submit" class="btn action-button confirm">
+                Save <i class="fa-solid fa-check"></i>
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}
