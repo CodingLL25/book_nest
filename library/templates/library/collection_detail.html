@@ -38,9 +38,9 @@
         <!-- Column wrapper -->
         <div class="col-12 col-md-4 mb-3">
             <!-- Card inside column -->
-            <div class="card border-light h-100">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <h3 class="mb-0 h5">Book by: {{ book.author }}</h3>
+            <div class="card book border-light h-100">
+                <div class="card-header book-header d-flex justify-content-between align-items-center">
+                    <h3 class="mb-0 h6">Book by: {{ book.author }}</h3>
                     {% if collection and user.is_authenticated and user == collection.user %}
                     <a href="{% url 'edit_book' slug=collection.slug book_id=book.id %}"
                         aria-label="Go to the page for editing this book" class="btn btn-sm icon-button"
@@ -50,12 +50,12 @@
                     {% endif %}
                 </div>
 
-                <div class="card-body">
-                    <h4 class="card-title">{{ book.title }}</h4>
-                    <p class="card-text">{{ book.body|clean_html }}</p>
+                <div class="card-body book-body">
+                    <h4 class="card-title book-title h5">{{ book.title }}</h4>
+                    <p class="card-text book-text">{{ book.body|clean_html }}</p>
                 </div>
 
-                <div class="card-footer d-flex justify-content-between align-items-center">
+                <div class="card-footer book-footer d-flex justify-content-between align-items-center">
                     <p class="mb-0">Status:
                         {% if book.finished %} Finished {% else %} In progress {% endif %}
                     </p>
