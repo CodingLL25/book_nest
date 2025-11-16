@@ -1,21 +1,40 @@
-from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 from django.views import generic
+from django.views.generic import TemplateView
 from django.contrib import messages
-from django.http import HttpResponseForbidden, HttpResponseRedirect
+from django.http import HttpResponseForbidden
 from .models import Collection, Book
 from .forms import CollectionForm, BookForm
 
 
-# Create your views here.
-class CollectionList(generic.ListView):
+class AboutPage(TemplateView):
     """
-    ADD DESCRIPTION WHEN CLEANING UP CODE
+    Class based view to show about page.
     """
 
-    queryset = Collection.objects.all().order_by("id")
+    template_name = "library/about.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["example_collections"] = Collection.objects.filter(
+            user__username="Example"
+        )
+        return context
+
+
+class CollectionList(LoginRequiredMixin, generic.ListView):
+    """
+    Class based view to show collections for a logged in user.
+    """
+
     template_name = "library/index.html"
     paginate_by = 3
+
+    def get_queryset(self):
+        return Collection.objects.filter(user=self.request.user).order_by("id")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
