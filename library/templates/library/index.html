@@ -10,20 +10,22 @@
     <p> An overivew of your collections</p>
 </div>
 
-<section class="container-fluid heading">
+<div class="container-fluid heading">
     <!-- Collection Entry Form -->
     {% if user.is_authenticated %}
     <div class="form create-collection">
-        <a href="{% url 'create_collection' %}" aria-label="Go to the form for creating a collection">
-            <button type="submit" class="btn icon-button"><i class="fa-solid fa-pen-to-square"></i> Create a new
-                collection</button>
-        </a>
+        <form action="{% url 'create_collection' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn icon-button" aria-label="Submit to create a new collection">
+                <i class="fa-solid fa-pen-to-square"></i> Create a new collection
+            </button>
+        </form>
     </div>
     {% endif %}
-</section>
+</div>
 
 <!-- Collection Entries Column -->
-<section class="collection-summary">
+<div class="collection-summary">
     <div class="container collection-container mt-4">
         {% for collection in collection_list %}
         {% if collection and user.is_authenticated and user == collection.user %}
@@ -64,7 +66,7 @@
         {% endif %}
         {% endfor %}
     </div>
-</section>
+</div>
 
 <!--Navigating through collections -->
 {% if is_paginated %}
