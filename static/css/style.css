@@ -123,6 +123,10 @@ main {
     color: white;
 }
 
+.warning-message, .errorlist {
+    color: red;
+}
+
 /* button styles */
 .icon-button {
     margin: 5px;
