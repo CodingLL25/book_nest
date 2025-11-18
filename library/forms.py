@@ -16,3 +16,6 @@ class BookForm(forms.ModelForm):
     class Meta:
         model = Book
         fields = ("title", "author", "body", "finished", "tag")
+        help_texts = {
+            "tag": "CTRL-click to select multiple tags",
+        }
