@@ -10,7 +10,7 @@
     <p> {{ collection.excerpt }}</p>
 </div>
 
-<section class="form">
+<div class="form">
     <div class="row heading">
         {% if collection and user.is_authenticated and user == collection.user %}
         <!-- Add Book Form -->
@@ -29,9 +29,9 @@
         </div>
         {% endif %}
     </div>
-</section>
+</div>
 
-<section class="book-summary container mt-4">
+<div class="book-summary container mt-4">
     <div class="row">
         {% if books %}
         {% for book in books %}
@@ -80,6 +80,6 @@
         <p>No books in this collection yet.</p>
         {% endif %}
     </div>
-</section>
+</div>
 
 {% endblock content %}
