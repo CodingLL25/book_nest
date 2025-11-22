@@ -44,11 +44,13 @@ main {
     background-color: var(--secondary-color);
     cursor: pointer;
     transition: color 0.2s ease-in-out;
+    border: 0px;
 }
 
 .account-button:hover, .action-button:hover, .icon-button:hover {
     background-color: var(--light-highlight);
     color: white;
+    border: 0px;
 }
 
 .warning-message, .errorlist {
@@ -148,10 +150,15 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px;
 }
 
-.filter-heading{
-    font-size: small;
+.filter-text {
+    margin-right: 10px;
+}
+
+.filter > .action-button {
+    margin-left: 10px;
 }
 
 .collection-link {

@@ -32,20 +32,19 @@
 </div>
 
 <!-- Filter book based on author -->
-<section class="filter">
-    <h3 class="filter-heading">Filter your books by authors:</h3>
-    <form method="get">
-        <select name="author" aria-label="Filter by author">
-            <option value="">All Authors</option>
-            {% for book in collection.books.all %}
-            <option value="{{ book.author }}" {% if request.GET.author == book.author %}selected{% endif %}>
-                {{ book.author }}
-            </option>
-            {% endfor %}
-        </select>
-        <button type="submit" class="action-button">Filter</button>
-    </form>
-</section>
+<form method="get" class="filter">
+    <label for="author" class="filter-text">Filter by author:</label>
+    <select name="author" id="author">
+        <option value="">All Authors</option>
+        {% for a in authors %}
+        <option value="{{ a }}" {% if selected_author == a %}selected{% endif %}>
+            {{ a }}
+        </option>
+        {% endfor %}
+    </select>
+    <button type="submit" class="filter-button action-button">Filter</button>
+</form>
+
 
 <!-- Book container -->
 <div class="book-summary container mt-4">

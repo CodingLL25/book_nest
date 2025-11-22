@@ -25,20 +25,18 @@
 </div>
 
 <!-- Filter collections based on theme -->
-<section class="filter">
-    <h3 class="filter-heading">Filter your collections by theme:</h3>
-    <form method="get">
-        <select name="theme" aria-label="Filter by theme">
-            <option value="">All Themes</option>
-            {% for value, label in themes %}
-            <option value="{{ value }}" {% if request.GET.theme == value %}selected{% endif %}>
-                {{ label }}
-            </option>
-            {% endfor %}
-        </select>
-        <button class="action-button" type="submit">Filter</button>
-    </form>
-</section>
+<form method="get" class="filter">
+    <label for="theme" class="filter-text">Filter by theme:</label>
+    <select name="theme" aria-label="Filter by theme">
+        <option value="">All Themes</option>
+        {% for value, label in themes %}
+        <option value="{{ value }}" {% if request.GET.theme == value %}selected{% endif %}>
+            {{ label }}
+        </option>
+        {% endfor %}
+    </select>
+    <button class="action-button" type="submit">Filter</button>
+</form>
 
 <!-- Collection Entries Column -->
 <div class="collection-summary">

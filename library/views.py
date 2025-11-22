@@ -88,6 +88,7 @@ def collection_detail(request, slug):
     collection = get_object_or_404(Collection, slug=slug, user=request.user)
     books = collection.books.all()
 
+    authors = books.values_list("author", flat=True).distinct().order_by("author")
     author = request.GET.get("author")
     if author:
         books = books.filter(author=author)
@@ -98,6 +99,8 @@ def collection_detail(request, slug):
         {
             "collection": collection,
             "books": books,
+            "authors": authors,
+            "selected_author": author,
         },
     )
 
