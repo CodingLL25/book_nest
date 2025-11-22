@@ -129,7 +129,7 @@ Success message for edit collection
 | Delete collection modal | Cancel delete request | Redirected to collection detail | Yes | Yes | - |
 | Delete collection modal | Yes, delete selected | Redirected to collection page with collection deleted | Yes | Yes | - |
 | Yes, delete  | Yes, delete selected in modal for collection| Success message appears confirming deletion of collection| Yes | Yes | - |
-| Filter  | Filter by author |Show dropdown list of authors| Yes | No | Shows duplicate authors |
+| Filter  | Filter by author |Show dropdown list of authors| Yes | Yes | Showed duplicate authors previously, fixed during testing |
 
 Add book form:
 ![Add book form](documentation/add-book-form.jpg)
@@ -145,5 +145,12 @@ Delete book confirmation:
 
 Edit book form pre-populated:
 ![Edit book form](documentation/edit-book-example.jpg)
+
+Book filter with duplicates:
+![Book filter with duplicates](documentation/book-filter-duplicates.jpg)
+
+Amended book filter without duplicates:
+![Amended book filter - no duplicates](documentation/book-filter.jpg)
+
 
 ### Validator Testing 
