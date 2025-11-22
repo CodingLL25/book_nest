@@ -80,7 +80,7 @@ def example_collection_details(request, slug):
     )
 
 
-@login_required
+@login_required(login_url="/")
 def collection_detail(request, slug):
     """
     Function to show relevant collection details for logged in user
