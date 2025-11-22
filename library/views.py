@@ -25,20 +25,42 @@ class AboutPage(TemplateView):
         return context
 
 
-class CollectionList(LoginRequiredMixin, generic.ListView):
-    """
-    Class based view to show collections for a logged in user.
-    """
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views import generic
+from .models import Collection
+from .forms import CollectionForm
 
+
+class CollectionList(LoginRequiredMixin, generic.ListView):
     template_name = "library/index.html"
+    context_object_name = "collection_list"
     paginate_by = 3
+    model = Collection
 
     def get_queryset(self):
-        return Collection.objects.filter(user=self.request.user).order_by("id")
+        queryset = Collection.objects.filter(user=self.request.user)
+
+        theme = self.request.GET.get("theme")
+        if theme:
+            queryset = queryset.filter(theme=theme)
+
+        return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["form"] = CollectionForm()
+
+        theme_values = (
+            Collection.objects.filter(user=self.request.user)
+            .values_list("theme", flat=True)
+            .distinct()
+        )
+
+        theme_dict = dict(Collection.THEME_CHOICES)
+        context["themes"] = [
+            (value, theme_dict.get(value, value)) for value in theme_values
+        ]
+
         return context
 
 

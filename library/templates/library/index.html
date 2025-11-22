@@ -21,6 +21,17 @@
             </button>
         </form>
     </div>
+    <form method="get">
+        <select name="theme">
+            <option value="">All Themes</option>
+            {% for value, label in themes %}
+            <option value="{{ value }}" {% if request.GET.theme == value %}selected{% endif %}>
+                {{ label }}
+            </option>
+            {% endfor %}
+        </select>
+        <button class="action-button" type="submit">Filter</button>
+    </form>
     {% endif %}
 </div>
 
