@@ -113,6 +113,9 @@ def create_collection(request):
             collection = form.save(commit=False)
             collection.user = request.user
             collection.save()
+            messages.success(
+                request, f'Collection "{collection.name}" has been created!'
+            )
             return redirect("collection_detail", slug=collection.slug)
     else:
         form = CollectionForm()
@@ -134,8 +137,10 @@ def edit_collection(request, slug):
             collection = collection
             collection.save()
             collection_form.save_m2m()
-            messages.success(request, "Collection has been updated!")
-            return redirect("/")
+            messages.success(
+                request, f'Collection "{collection.name}" has been updated!'
+            )
+            return redirect("collections")
     else:
         collection_form = CollectionForm(instance=collection)
 
@@ -168,6 +173,7 @@ def add_book(request, slug):
             book = form.save(commit=False)
             book.collection = collection
             book.save()
+            messages.success(request, f'Book "{book.title}" has been added!')
             return redirect("collection_detail", slug=collection.slug)
     else:
         form = BookForm()
@@ -199,7 +205,7 @@ def edit_book(request, slug, book_id):
             book.collection = collection
             book.save()
             book_form.save_m2m()
-            messages.success(request, "Book has been updated!")
+            messages.success(request, f'Book "{book.title}" has been updated!')
             return redirect("collection_detail", slug=slug)
     else:
         book_form = BookForm(instance=book)
@@ -228,6 +234,7 @@ def delete_book(request, slug, book_id):
         return HttpResponseForbidden("You are not allowed to delete this book.")
     if request.method == "POST":
         book.delete()
+        messages.error(request, f'Book "{book.title}" has been deleted!')
         return redirect("collection_detail", slug=collection.slug)
 
     return render(
@@ -252,6 +259,7 @@ def delete_collection(request, slug):
         return HttpResponseForbidden("You are not allowed to delete this collection.")
     if request.method == "POST":
         collection.delete()
+        messages.error(request, f'Collection "{collection.name}" has been deleted!')
         return redirect("collections")
 
     return render(request, "library/delete_collection.html", {"collection": collection})
