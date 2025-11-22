@@ -3,17 +3,17 @@
 
 {% block content %}
 <!-- About -->
-<div class="collection-name">
+<section class="collection-name">
     <h2>About "Book Nest"</h2>
     <p> Welcome to your digital bookshelf — a space designed to help you easily add, edit, and organize your books and
         collections. Keep track of your reading journey and manage your library with ease.</p>
-</div>
+</section>
 
 <section class="example-collections container">
+    <h2 class="heading">Example Collections</h2>
+    <p class="overview">Here are three example collections curated by the site owner. Have a look in each of the
+        collections to see what can be done. </p>
     <div class="collection-holder">
-        <h2 class="heading">Example Collections</h2>
-        <p class="overview">Here are three example collections curated by the site owner. Have a look in each of the
-            collections to see what can be done. </p>
         <div class="row">
             {% for collection in example_collections %}
             {% if collection and collection.user.username == "Example" %}
