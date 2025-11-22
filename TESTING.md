@@ -4,11 +4,11 @@
 The navigation bar allows the site user to navigate through the different pages of the site, either to the about page (home), collections page or sign in/sign up/log out page.
 | feature | action | expected result | tested | passed | comments |
 | --- | --- | --- | --- | --- | --- |
-| Book Nest button in navigation| Click on the "Book Nest" button| Takes you to the about page| Yes | Yes | - |
-| About button in navigation| Click on the "About" button| Takes you to the about page| Yes | Yes | - |
-| Collections button in navigation| Click on the "Collections" button| Takes you to the sign in page if not logged in| Yes | Yes | - |
-| Register button in navigation| Click on the "Register" button| Takes you to the register page (if logged out) | Yes | Yes | - |
-| Login button in navigation| Click on the "Login" button| Takes you to the login page| Yes | Yes | - |
+| Book Nest button in navigation| Click on "Book Nest" in navbar| Takes you to the about page| Yes | Yes | - |
+| About button in navigation| Click on "About" in navbar| Takes you to the about page| Yes | Yes | - |
+| Your collections button in navigation| Click on "Your collections" in navbar| Takes you to the sign in page if not logged in| Yes | Yes | - |
+| Register button in navigation| Click on "Register" in navbar| Takes you to the register page (if logged out) | Yes | Yes | - |
+| Login button in navigation| Click on "Login" in navbar| Takes you to the login page| Yes | Yes | - |
 
 ![Navigation bar when not logged in](documentation/site-heading-and-navigation.jpg)
 
@@ -16,13 +16,17 @@ The navigation bar allows the site user to navigate through the different pages 
 Amendmens to the navigation bar / site based on successful login.
 | feature | action | expected result | tested | passed | comments |
 | --- | --- | --- | --- | --- | --- |
-| Logout button in navigation| Click on the "Logout" button| Takes you to the logout page| Yes | Yes | - |
+| Logout button in navigation| Click on "Logout" in navbar| Takes you to the logout page| Yes | Yes | - |
 | Login/Register buttons | Successful login | No longer shows "login" or "register" in navigation| Yes | Yes | - |
 | Logged into account | Successful login | Page confirms "You are logged in as X" | Yes | Yes | - |
 | Logged into account | Successful login | Success message appears confirming "succesfully signed in as X" | Yes | Yes | "You have signed out message also appearing" - error |
 | Collections button in navigation| Click on the "Collections" button| Takes you to the collections page if logged in| Yes | Yes | - |
 
+Navigation bar when logged in:
 ![Navigation bar when logged in](documentation/navigation-logged-in.jpg)
+
+Sign-in message appearing when successfully logging in:
+![Sign out error](documentation/sign-out-error.jpg)
 
 #### About page
 The about page provides context on the site purpose, and shows three example collections (from the user = example)
@@ -33,6 +37,7 @@ The about page provides context on the site purpose, and shows three example col
 | View collection | Click on the "view collection" button for "Whirlwind summer" collection | Takes you to the "Whirlwind summer" example collection detail showing book cards| Yes | Yes | - |
 | Sign up for an account button | Click on "Sign up for an account" | Takes you to the login page | Yes | Yes | - |
 | Sign into your account button | Click on "Sign into your account" | Takes you to the login page | Yes | Yes | - |
+| View collection button | Hover over view colletion button| "Go to collection" popup | Yes | Yes | - |
 
 ![About page](documentation/about-page.jpg)
 
@@ -65,6 +70,7 @@ Error message for username already exists:
 | Filter | Select specific filter i.e. "Romance"| Filters collection to show "Romance" collections | Yes | Yes | - |
 | Filter | Select specific filter i.e. "Mystery"| Filters collection to show "Mystery" collections | Yes | Yes | - |
 | Filter | Select specific filter i.e. "Self-development"| Filters collection to show "Self-development" collections | Yes | Yes | - |
+| Filter | Collection with same theme| Only shows theme once in filter | Yes | Yes | - |
 | Edit collections | Hover over edit collections button| Changes colour and "edit collection" is shown | Yes | Yes | - |
 | Edit collections | Edit collections button selected | Takes you to edit collection form | Yes | Yes | - |
 | Collection cards | Click collection name | Takes you to the collection | Yes | Yes | Checked for each collection |
@@ -74,6 +80,9 @@ Filters for user = example:
 
 Filtered collection by "Romance" for user = example:
 ![Romance filter applied for example user](documentation/romance-fitler.jpg)
+
+Filter showing correctly when there are duplicate themes:
+![Filter without duplicate themes](documentation/theme-filter-check.jpg)
 
 Edit collection information:
 ![Edit collection button](documentation/edit-collections-button.jpg)
