@@ -32,6 +32,11 @@ from .forms import CollectionForm
 
 
 class CollectionList(LoginRequiredMixin, generic.ListView):
+    """
+    Function to show relevant collections logged in user.
+    Allow user to filter by theme.
+    """
+
     template_name = "library/index.html"
     context_object_name = "collection_list"
     paginate_by = 3
@@ -68,9 +73,12 @@ def collection_detail(request, slug):
     """
     Function to show relevant collection details for logged in user
     """
-    queryset = Collection.objects.all().order_by("id")
-    collection = get_object_or_404(queryset, slug=slug)
+    collection = get_object_or_404(Collection, slug=slug, user=request.user)
     books = collection.books.all()
+
+    author = request.GET.get("author")
+    if author:
+        books = books.filter(author=author)
 
     return render(
         request,
