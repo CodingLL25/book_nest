@@ -4,7 +4,10 @@ from django.contrib.auth.models import User
 
 
 class Tag(models.Model):
-    """Tag model"""
+    """
+    Stores a single tag with a unique slug.
+    Each tag can be linked to many books.
+    """
 
     name = models.CharField(
         max_length=100,
