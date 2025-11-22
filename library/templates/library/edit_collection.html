@@ -5,12 +5,12 @@
 
 {% block content %}
 <!-- Edit collection -->
-<div class="collection-name">
+<section class="collection-name">
     <h2>{{ collection.name }}</h2>
     <p> Edit "{{ collection.name }}"</p>
-</div>
+</section>
 
-<div class="edit-collection">
+<section class="edit-collection">
     <h3 class="edit-collection heading">Edit collection</h3>
     <p class="guidance-text">* indicates a required field</p>
     <form method="POST" class="form">
@@ -25,5 +25,5 @@
             </button>
         </div>
     </form>
-</div>
+</section>
 {% endblock %}
