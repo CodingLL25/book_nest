@@ -55,11 +55,6 @@ main {
     color: red;
 }
 
-.success-message {
-    color: rgb(22, 156, 22);
-    text-align: center;
-}
-
 /* Base.html style */
 .navbar {
     display: flex;
