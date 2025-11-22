@@ -23,7 +23,7 @@
                 </div>
                 <div class="modal-footer">
                     <a href="{% url 'collection_detail' collection.slug %}" class="btn btn-secondary">Cancel</a>
-                    <form method="post" action="{% url 'delete_collection' collection.slug %}">
+                    <form method="post" action="{% url 'delete_book' collection.slug book.id %}">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-danger">Yes, Delete</button>
                     </form>
