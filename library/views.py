@@ -25,12 +25,6 @@ class AboutPage(TemplateView):
         return context
 
 
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views import generic
-from .models import Collection
-from .forms import CollectionForm
-
-
 class CollectionList(LoginRequiredMixin, generic.ListView):
     """
     Function to show relevant collections logged in user.
@@ -69,6 +63,24 @@ class CollectionList(LoginRequiredMixin, generic.ListView):
         return context
 
 
+def example_collection_details(request, slug):
+    """
+    Function to show relevant collection details for logged in user
+    """
+    collection = get_object_or_404(Collection, slug=slug, user__username="Example")
+    books = collection.books.all()
+
+    return render(
+        request,
+        "library/example_collections.html",
+        {
+            "collection": collection,
+            "books": books,
+        },
+    )
+
+
+@login_required
 def collection_detail(request, slug):
     """
     Function to show relevant collection details for logged in user
