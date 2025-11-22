@@ -153,7 +153,7 @@ Amended book filter without duplicates:
 ![Amended book filter - no duplicates](documentation/book-filter.jpg)
 
 
-### Validator Testing 
+### HTML Validator Testing 
 #### About page / Home page validation
 - HTML: three errors noted intiially when passing about.html source through validation. No errors were returned when passing through the official W3C validator prior to submission.
 
@@ -204,3 +204,10 @@ Add book validation:
 - HTML: No errors were returned when passing through the official W3C validator prior to submission.
 ![Validation results from W3C - Edit book](documentation/edit-book-validation.jpg)
 
+
+### CSS Validator testing
+Two warnings with CSS validation by direct input:
+- Imported style sheets are not checked in direct input and file upload modes
+- Due to their dynamic nature, CSS variables are currently not statically checked
+
+![CSS validation](documentation/css-validation-direct-input.jpg)
