@@ -5,10 +5,10 @@
 
 {% block content %}
 <!-- index.html content starts here -->
-<div class="collection-name">
+<section class="collection-name">
     <h2>Your collections</h2>
     <p> An overivew of your collections</p>
-</div>
+</section>
 
 <div class="container-fluid heading">
     <!-- Collection Entry Form -->
@@ -21,6 +21,12 @@
             </button>
         </form>
     </div>
+    {% endif %}
+</div>
+
+<!-- Filter collections based on theme -->
+<section class="filter">
+    <h3 class="filter-heading">Filter your collections by theme:</h3>
     <form method="get">
         <select name="theme">
             <option value="">All Themes</option>
@@ -32,8 +38,7 @@
         </select>
         <button class="action-button" type="submit">Filter</button>
     </form>
-    {% endif %}
-</div>
+</section>
 
 <!-- Collection Entries Column -->
 <div class="collection-summary">
