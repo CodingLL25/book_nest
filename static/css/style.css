@@ -35,6 +35,26 @@ main {
     padding-bottom: 20px;
 }
 
+/* Global styles */
+.icon-button {
+    margin: 5px;
+}
+
+.account-button, .action-button {
+    background-color: var(--secondary-color);
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+}
+
+.account-button:hover, .action-button:hover, .icon-button:hover {
+    background-color: var(--light-highlight);
+    color: white;
+}
+
+.warning-message, .errorlist {
+    color: red;
+}
+
 /* Base.html style */
 .navbar {
     display: flex;
@@ -123,27 +143,17 @@ main {
     color: white;
 }
 
-.warning-message, .errorlist {
-    color: red;
-}
-
-/* button styles */
-.icon-button {
-    margin: 5px;
-}
-
-.account-button, .action-button {
-    background-color: var(--secondary-color);
-    cursor: pointer;
-    transition: color 0.2s ease-in-out;
-}
-
-.account-button:hover, .action-button:hover, .icon-button:hover {
-    background-color: var(--light-highlight);
-    color: white;
-}
-
 /* index.html style */
+.filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-heading{
+    font-size: small;
+}
+
 .collection-link {
     text-decoration: none;
     color: var(--primary-color);
