@@ -35,7 +35,7 @@
 <section class="filter">
     <h3 class="filter-heading">Filter your books by authors:</h3>
     <form method="get">
-        <select name="author">
+        <select name="author" aria-label="Filter by author">
             <option value="">All Authors</option>
             {% for book in collection.books.all %}
             <option value="{{ book.author }}" {% if request.GET.author == book.author %}selected{% endif %}>
