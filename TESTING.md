@@ -154,3 +154,53 @@ Amended book filter without duplicates:
 
 
 ### Validator Testing 
+#### About page / Home page validation
+- HTML: three errors noted intiially when passing about.html source through validation. No errors were returned when passing through the official W3C validator prior to submission.
+
+Initial validation checks:
+![Validation results from W3C - About/Home page checks](documentation/about-checks.jpg)
+
+Final validation checks:
+![Validation results from W3C - About/Home page validation](documentation/about-html-validation.jpg)
+
+#### Login page
+- HTML: one trailing slash noted during intial validation checks. No errors were returned when passing through the official W3C validator prior to submission.
+
+Initial validation checks:
+![Validation results from W3C - Login checks](documentation/login-html-check.jpg)
+
+Final validation checks:
+![Validation results from W3C - Login validation](documentation/collections-html-check.jpg)
+
+
+#### Collections
+- HTML: three errors noted intiially when passing source code through validation. No errors were returned when passing through the official W3C validator prior to submission.
+
+Initial validation checks:
+![Validation results from W3C - Collections checks](documentation/collections-html-check.jpg)
+![Validation results from W3C - Collections checks](documentation/repeat-collections-html-check.jpg)
+
+Final validation checks:
+![Validation results from W3C - Collections validation](documentation/collections-html-validation.jpg)
+
+#### Create collection
+- HTML: No errors were returned when passing through the official W3C validator prior to submission.
+
+![Validation results from W3C - Create collection](documentation/create-collection-validation.jpg)
+
+
+#### Collection detail
+- HTML: No errors were returned when passing through the official W3C validator prior to submission.
+
+![Validation results from W3C - Collection detail](documentation/collection-detail-validation.jpg)
+
+#### Add book to collection
+- HTML: No errors were returned when passing through the official W3C validator prior to submission.
+
+Add book validation:
+![Validation results from W3C - Add book](documentation/add-book-validation.jpg)
+
+#### Edit book in collection
+- HTML: No errors were returned when passing through the official W3C validator prior to submission.
+![Validation results from W3C - Edit book](documentation/edit-book-validation.jpg)
+
