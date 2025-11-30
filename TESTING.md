@@ -170,7 +170,7 @@ Initial validation checks:
 ![Validation results from W3C - Login checks](documentation/login-html-check.jpg)
 
 Final validation checks:
-![Validation results from W3C - Login validation](documentation/collections-html-check.jpg)
+![Validation results from W3C - Login validation](documentation/login-html-validation.jpg)
 
 
 #### Collections
