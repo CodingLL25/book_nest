@@ -16,11 +16,11 @@
     <form method="POST" class="form">
         {% csrf_token %}
         {{ book_form|crispy }}
-        <div class="student__buttons">
+        <div class="user-buttons">
             <a href="{% url 'collection_detail' collection.slug %}" aria-label="Go to back to collection page"
-                class="btn action-button cancel">Cancel
+                class="btn action-button cancel-button">Cancel
             </a>
-            <button type="submit" class="btn action-button confirm">
+            <button type="submit" class="btn action-button confirm-button">
                 Save <i class="fa-solid fa-check"></i>
             </button>
         </div>

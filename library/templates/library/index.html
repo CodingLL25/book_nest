@@ -16,8 +16,9 @@
     <div class="form create-collection">
         <form action="{% url 'create_collection' %}" method="post">
             {% csrf_token %}
-            <button type="submit" class="btn icon-button" aria-label="Submit to create a new collection">
-                <i class="fa-solid fa-pen-to-square"></i> Create a new collection
+            <button type="submit" class="btn btn-sm icon-button add-button"
+                aria-label="Submit to create a new collection"><i class="fa-solid fa-plus icon"></i>Create a new
+                collection
             </button>
         </form>
     </div>
@@ -35,7 +36,7 @@
         </option>
         {% endfor %}
     </select>
-    <button class="action-button" type="submit">Filter</button>
+    <button class="basic-button filter-button" type="submit">Filter</button>
 </form>
 
 <!-- Collection Entries Column -->
@@ -53,11 +54,6 @@
                     <!-- Card header -->
                     <div class="card-header collection-header d-flex justify-content-between align-items-center">
                         <h3 class="mb-0 h5">Collection by: {{ collection.user }}</h3>
-                        <a href="{% url 'edit_collection' collection.slug %}"
-                            aria-label="Go to the page for editing this collection" class="btn btn-sm icon-button"
-                            title="Edit collection">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                        </a>
                     </div>
                     <!-- Card body -->
                     <div class="card-body collection-body text-dark">
@@ -71,6 +67,10 @@
                     </div>
                     <div class="card-footer collection-footer">
                         <small class="text-muted">Collection theme: {{ collection.get_theme_display }}</small>
+                        <a href="{% url 'collection_detail' collection.slug %}"
+                            class="btn btn-sm btn-info float-end view-button" title="Go to collection">
+                            View Collection
+                        </a>
                     </div>
                 </div>
             </div>

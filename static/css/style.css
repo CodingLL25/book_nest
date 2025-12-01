@@ -12,7 +12,7 @@
     --light-highlight: rgb(217, 126, 71);
     --bright-highlight: #632a13;
     --danger: rgb(186, 38, 38);
-    --confirmation: rgb(58, 117, 66);
+    --confirmation: rgba(97, 159, 105);
     --cancel: rgb(225, 205, 147);
 }
 
@@ -38,23 +38,6 @@ main {
 }
 
 /* Global styles */
-.icon-button {
-    margin: 5px;
-}
-
-.account-button, .action-button {
-    background-color: var(--secondary-color);
-    cursor: pointer;
-    transition: color 0.2s ease-in-out;
-    border: 0px;
-}
-
-.account-button:hover, .action-button:hover, .icon-button:hover {
-    background-color: var(--light-highlight);
-    color: white;
-    border: 0px;
-}
-
 .warning-message, .errorlist, .logged-out {
     color: var(--danger)
 }
@@ -62,6 +45,80 @@ main {
 .logged-in {
     color: var(--confirmation)
 }
+
+.icon-button > .icon {
+    padding-right: 10px;
+}
+
+.account-button  {
+    background-color: var(--secondary-color);
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+    border: 0px;
+}
+
+.account-button:hover, .account-button:focus {
+    background-color: var(--light-highlight);
+    color: white;
+    border: 0px;
+}
+
+.edit-button {
+    background-color: var(--highlight);
+    color: white;
+}
+
+.edit-button:hover, .edit-button:focus {
+    background-color: var(--light-highlight);
+    color: white;
+}
+
+.add-button, .confirm-button {
+    background-color: rgba(97, 159, 105, 0.5);
+}
+
+.confirm-button:hover, .confirm-button:focus, .add-button:hover, .add-button:focus {
+    background-color: var(--tertiary-color);
+    color: white;
+}
+
+.cancel-button, .filter-button {
+    background-color: var(--cancel);
+    border: 0px;
+}
+
+.filter-button:hover, .filter-button:focus, .cancel-button:hover, .cancel-button:focus {
+    background-color: var(--highlight)
+}
+
+.view-button:hover, .view-button:focus {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.user-buttons {
+    display: flex;             
+    margin: 0 auto;           
+    justify-content: center;  
+    align-items: center;      
+    gap: 20%;                
+}
+
+.action-button {
+    padding: 5px 35px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 4rem; 
+}
+
+.modal-buttons form {
+    margin: 0; 
+}
+
 
 /* Base.html style */
 .navbar {
@@ -184,4 +241,9 @@ main {
 
 .delete-icon {
     padding: 2px 5px;   
+}
+
+.book-body {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
 }

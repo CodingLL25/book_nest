@@ -21,11 +21,12 @@
                     <p>Are you sure you want to delete the collection <strong>{{ collection.name }}</strong>? This
                         action cannot be undone.</p>
                 </div>
-                <div class="modal-footer">
-                    <a href="{% url 'collection_detail' collection.slug %}" class="btn btn-secondary">Cancel</a>
+                <div class="modal-footer modal-buttons">
+                    <a href="{% url 'collection_detail' collection.slug %}"
+                        class="btn action-button cancel-button">Cancel</a>
                     <form method="post" action="{% url 'delete_collection' collection.slug %}">
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                        <button type="submit" class="btn action-button btn-danger">Yes, Delete</button>
                     </form>
                 </div>
             </div>

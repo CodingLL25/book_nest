@@ -6,45 +6,54 @@
 {% block content %}
 <!-- Collection detail -->
 <section class="collection-name">
-    <h2>{{ collection.name }}</h2>
+    <h2> Your Collection: {{ collection.name }}</h2>
     <p> {{ collection.excerpt }}</p>
 </section>
 
-<div class="form">
-    <div class="row heading">
-        {% if collection and user.is_authenticated and user == collection.user %}
-        <!-- Add Book Form -->
-        <div class="add-book col-md-6">
-            <a href="{% url 'add_book' collection.slug %}"
-                aria-label="Go to the page for adding a book to this collection" class="btn icon-button add">
-                Add a book to your collection <i class="fa-solid fa-plus"></i>
-            </a>
-        </div>
-        <!-- Delete Collection -->
-        <div class="delete-collection col-md-6">
-            <a href="{% url 'delete_collection' collection.slug %}"
-                aria-label="Go to the page for deleting this collection" class="btn btn-danger delete">
-                Delete this collection <i class="fa-solid fa-delete-left icon"></i>
-            </a>
-        </div>
-        {% endif %}
+<div class="form row heading">
+    {% if collection and user.is_authenticated and user == collection.user %}
+    <div class="col-sm-4 align-items-center">
+        <p class="mb-0">Update your collection:</p>
     </div>
+    <!-- Edit Collection -->
+    <div class="edit-collection col-sm-4">
+        <a href="{% url 'edit_collection' collection.slug %}" aria-label="Go to the page for editing this collection"
+            class="btn btn-sm edit-button icon-button" title="Edit collection">
+            <i class="fa-solid fa-pen-to-square icon"></i>Edit collection
+        </a>
+    </div>
+    <!-- Delete Collection -->
+    <div class="delete-collection col-sm-4">
+        <a href="{% url 'delete_collection' collection.slug %}" aria-label="Go to the page for deleting this collection"
+            class="btn btn-danger btn-sm icon-button delete-button">
+            <i class="fa-solid btn-sm fa-delete-left icon"></i>Delete collection
+        </a>
+    </div>
+    {% endif %}
 </div>
 
-<!-- Filter book based on author -->
-<form method="get" class="filter">
-    <label for="author" class="filter-text">Filter by author:</label>
-    <select name="author" id="author">
-        <option value="">All Authors</option>
-        {% for a in authors %}
-        <option value="{{ a }}" {% if selected_author == a %}selected{% endif %}>
-            {{ a }}
-        </option>
-        {% endfor %}
-    </select>
-    <button type="submit" class="filter-button action-button">Filter</button>
-</form>
-
+<div class="additonal-forms row align-items-center">
+    <!-- Add Book Form -->
+    <div class="col-sm-6">
+        <a href="{% url 'add_book' collection.slug %}" aria-label="Go to the page for adding a book to this collection"
+            class="btn btn-sm icon-button add-button icon-button">
+            <i class="fa-solid fa-plus icon"></i>Add a book to your collection
+        </a>
+    </div>
+    <!-- Filter book based on author -->
+    <form method="get" class="filter col-sm-6">
+        <label for=" author" class="filter-text">Filter by author:</label>
+        <select name="author" id="author" title="authors">
+            <option value="">All Authors</option>
+            {% for a in authors %}
+            <option value="{{ a }}" {% if selected_author == a %}selected{% endif %}>
+                {{ a }}
+            </option>
+            {% endfor %}
+        </select>
+        <button type="submit" class="filter-button">Filter</button>
+    </form>
+</div>
 
 <!-- Book container -->
 <div class="book-summary container mt-4">
@@ -54,38 +63,37 @@
         <!-- Column wrapper -->
         <div class="col-12 col-md-4 mb-3">
             <!-- Card inside column -->
-            <div class="card book border-light h-100">
+            <div class="card book h-100">
                 <div class="card-header book-header d-flex justify-content-between align-items-center">
                     <h3 class="mb-0 h6">Book by: {{ book.author }}</h3>
-                    {% if collection and user.is_authenticated and user == collection.user %}
-                    <a href="{% url 'edit_book' slug=collection.slug book_id=book.id %}"
-                        aria-label="Go to the page for editing this book" class="btn btn-sm icon-button"
-                        title="Edit book">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                    </a>
-                    {% endif %}
                 </div>
-
                 <div class="card-body book-body">
                     <h4 class="card-title book-title h5">{{ book.title }}</h4>
-                    <p class="tags">
+                    <p class="tags mb-2">
                         {% for t in book.tag.all %}
                         <span class="badge bg-secondary">{{ t.name }}</span>
                         {% empty %}
                         <span class="text-muted">No tags</span>
                         {% endfor %}
                     </p>
-                    <p class="card-text book-text">{{ book.body|clean_html }}</p>
+                    <p class="card-text book-text mb-2">
+                        {{ book.body|clean_html }}
+                    </p>
+                    <p class="mb-0">
+                        Status: {% if book.finished %} Finished {% else %} In progress {% endif %}
+                    </p>
                 </div>
                 <div class="card-footer book-footer d-flex justify-content-between align-items-center">
-                    <p class="mb-0">Status:
-                        {% if book.finished %} Finished {% else %} In progress {% endif %}
-                    </p>
                     {% if collection and user.is_authenticated and user == collection.user %}
+                    <a href="{% url 'edit_book' slug=collection.slug book_id=book.id %}"
+                        aria-label="Go to the page for editing this book" class="btn btn-sm edit-button icon-button"
+                        title="Edit book">
+                        <i class="fa-solid fa-pen-to-square icon"></i>Edit book
+                    </a>
                     <a href="{% url 'delete_book' slug=collection.slug book_id=book.id %}"
-                        aria-label="Go to the page for deleting this book" class="btn btn-sm btn-danger"
-                        title="Delete book">
-                        <i class="fa-solid fa-delete-left"></i>
+                        aria-label="Go to the page for deleting this book"
+                        class="btn btn-sm delete-button btn-danger icon-button" title="Delete book">
+                        <i class="fa-solid fa-delete-left icon"></i>Delete book
                     </a>
                     {% endif %}
                 </div>
