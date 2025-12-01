@@ -50,17 +50,25 @@ main {
     padding-right: 10px;
 }
 
-.account-button  {
-    background-color: var(--secondary-color);
-    cursor: pointer;
-    transition: color 0.2s ease-in-out;
-    border: 0px;
+.sign-in-button, .sign-up-button {
+    align-items: center;
+    margin: 0px 25px;
 }
 
-.account-button:hover, .account-button:focus {
-    background-color: var(--light-highlight);
-    color: white;
-    border: 0px;
+.sign-in-button, .btn-signin {
+    background-color: rgba(97, 159, 105, 0.3);
+}
+
+.sign-in-button:hover,.sign-in-button:focus , .btn-signin:hover, .btn-signin:hover {
+    background-color: rgba(97, 159, 105, 0.8);
+}
+
+.sign-up-button, .btn-signup {
+    background-color: rgb(217, 126, 71, 0.3);
+}
+
+.sign-up-button:hover,.sign-up-button:focus , .btn-signup:hover, .btn-signup:hover {
+    background-color: rgba(217, 126, 71, 0.9);
 }
 
 .edit-button {
@@ -183,29 +191,6 @@ main {
 
 .cover-text p {
     margin: 0; 
-}
-
-.sign-in-button, .sign-up-button {
-    align-items: center;
-    margin: 0px 25px;
-}
-
-.sign-up-button {
-    background-color: rgba(65, 134, 129, 0.3);
-}
-
-.sign-up-button:hover {
-    background-color: rgb(65, 134, 129);
-    color: white;
-}
-
-.sign-in-button {
-    background-color: rgba(217, 126, 71, 0.3);
-}
-
-.sign-in-button:hover {
-    background-color: rgb(217, 126, 71);
-    color: white;
 }
 
 /* index.html style */
