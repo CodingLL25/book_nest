@@ -3,6 +3,8 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
+{% block extra_title %}: Collection Detail{% endblock %}
+
 {% block content %}
 <!-- Collection detail -->
 <section class="collection-name">
@@ -77,11 +79,13 @@
                 <div class="card-body book-body">
                     <h4 class="card-title book-title h5">{{ book.title }}</h4>
                     <p class="tags mb-2">
-                        {% for t in book.tag.all %}
-                        <span class="badge bg-secondary">{{ t.name }}</span>
-                        {% empty %}
-                        <span class="text-muted">No tags</span>
-                        {% endfor %}
+                        <p class="tags mb-2">
+                            {% for t in book.tag.all %}
+                            <span class="badge bg-secondary">{{ t.name }}</span>
+                            {% empty %}
+                            <span class="text-muted">No tags</span>
+                            {% endfor %}
+                        </p>
                     </p>
                     <p class="card-text book-text mb-2">
                         {{ book.body|clean_html }}

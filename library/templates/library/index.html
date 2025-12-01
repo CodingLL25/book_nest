@@ -3,6 +3,8 @@
 {% load html_filters %}
 {% load crispy_forms_tags %}
 
+{% block extra_title %}: Your Collections{% endblock %}
+
 {% block content %}
 <!-- index.html content starts here -->
 <section class="collection-name">
@@ -109,23 +111,25 @@
         <!--Check if there is a previous page -->
         {% if page_obj.has_previous %}
         <li class="page-item">
-            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}"
+                aria-label="Go to previous page">Previous</a>
         </li>
         {% else %}
         <!--Disable previous button if no previous page -->
         <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true"
+                aria-label="You are on the earliest page">Previous</a>
         </li>
         {% endif %}
         {% for num in paginator.page_range %}
         <li class="page-item {% if page_obj.number == num %}active{% endif %}">
-            <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+            <a class="page-link" aria-label="You are on page {{num}}" href="?page={{ num }}">{{ num }}</a>
         </li>
         {% endfor %}
         <!--Show next button if there is another page -->
         {% if page_obj.has_next %}
         <li class="page-item">
-            <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next page">Next</a>
         </li>
         {% endif %}
     </ul>

@@ -3,10 +3,12 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
+{% block extra_title %}: Add book{% endblock %}
+
 {% block content %}
 <!-- Add book -->
 <section class="collection-name">
-    <h2>{{ collection.name }}</h2>
+    <h2>Collection: {{ collection.name }}</h2>
     <p>Add a book to this collection</p>
 </section>
 

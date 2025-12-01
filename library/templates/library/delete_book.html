@@ -3,10 +3,12 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
+{% block extra_title %}: Delete Book{% endblock %}
+
 {% block content %}
 <!-- Delete book -->
 <section class="collection-name">
-    <h2>{{ collection.name }}</h2>
+    <h2>Collection: {{ collection.name }}</h2>
     <p>Remove book from this collection: {{ book.title }} by {{ book.author }}</p>
 </section>
 

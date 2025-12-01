@@ -3,10 +3,12 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
+{% block extra_title %}: Edit Book{% endblock %}
+
 {% block content %}
 <!-- Edit book -->
 <section class="collection-name">
-    <h2>{{ collection.name }}</h2>
+    <h2>Collection: {{ collection.name }}</h2>
     <p> Edit "{{ book.title }}"" in your collection</p>
 </section>
 

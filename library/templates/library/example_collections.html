@@ -3,10 +3,12 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
+{% block extra_title %}: Example Collection{% endblock %}
+
 {% block content %}
 <!-- Collection detail -->
 <section class="collection-name">
-    <h2>{{ collection.name }}</h2>
+    <h2>Collection: {{ collection.name }}</h2>
     <p> {{ collection.excerpt }}</p>
 </section>
 
