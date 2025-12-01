@@ -12,6 +12,8 @@
     --light-highlight: rgb(217, 126, 71);
     --bright-highlight: #632a13;
     --danger: rgb(131, 21, 21);
+    --confirmation: rgb(29, 81, 36);
+    --cancel: rgb(225, 205, 147);
 }
 
 /* General styles */
@@ -54,7 +56,7 @@ main {
 }
 
 .warning-message, .errorlist {
-    color: red;
+    color: var(--danger);
 }
 
 /* Base.html style */
@@ -79,6 +81,14 @@ main {
     height: 25px;
     padding-right: 20px;
     text-align: right;
+}
+
+.logged-out {
+    color: var(--danger);
+}
+
+.logged-in {
+    color: var(--confirmation);
 }
 
 .footer {
