@@ -163,6 +163,10 @@ Initial validation checks:
 Final validation checks:
 ![Validation results from W3C - About/Home page validation](documentation/about-html-validation.jpg)
 
+#### Register page
+- HTML: four errors 
+
+
 #### Login page
 - HTML: one trailing slash noted during intial validation checks. No errors were returned when passing through the official W3C validator prior to submission.
 
