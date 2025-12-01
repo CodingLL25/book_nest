@@ -79,9 +79,9 @@
             </div>
             <div class="account-confirmation">
                 {% if user.is_authenticated %}
-                <p class="account-text">You are logged in as {{ user }}</p>
+                <p class="account-text logged-in">You are logged in as {{ user }}</p>
                 {% else %}
-                <p class="account-text">You are not logged in</p>
+                <p class="account-text logged-out">You are not logged in</p>
                 {% endif %}
             </div>
         </section>
