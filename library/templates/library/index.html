@@ -11,33 +11,39 @@
 </section>
 
 <div class="container-fluid heading">
+    <p class="hidden"></p>
+</div>
+
+<div class="additonal-forms row align-items-center">
     <!-- Collection Entry Form -->
-    {% if user.is_authenticated %}
-    <div class="form create-collection">
+    {% if user.is_authenticated and collection_list %}
+    <div class="form create-collection col-sm-6">
         <form action="{% url 'create_collection' %}" method="post">
             {% csrf_token %}
             <button type="submit" class="btn btn-sm icon-button add-button"
-                aria-label="Submit to create a new collection"><i class="fa-solid fa-plus icon"></i>Create a new
-                collection
+                aria-label="Submit to create a new collection">
+                <i class="fa-solid fa-plus icon"></i> Create a new collection
             </button>
         </form>
     </div>
     {% endif %}
-</div>
 
-<!-- Filter collections based on theme -->
-<form method="get" class="filter">
-    <label for="theme" class="filter-text">Filter by theme:</label>
-    <select class="drop-down" id="theme" name="theme" aria-label="Filter by theme">
-        <option value="">All Themes</option>
-        {% for value, label in themes %}
-        <option value="{{ value }}" {% if request.GET.theme == value %}selected{% endif %}>
-            {{ label }}
-        </option>
-        {% endfor %}
-    </select>
-    <button class="basic-button filter-button" type="submit">Filter</button>
-</form>
+    <!-- Filter book based on author -->
+    {% if collection_list %}
+    <form method="get" class="filter col-sm-6">
+        <label for="theme" class="filter-text">Filter by theme:</label>
+        <select class="drop-down" id="theme" name="theme" aria-label="Filter by theme">
+            <option value="">All Themes</option>
+            {% for value, label in themes %}
+            <option value="{{ value }}" {% if request.GET.theme == value %}selected{% endif %}>
+                {{ label }}
+            </option>
+            {% endfor %}
+        </select>
+        <button class="basic-button filter-button" type="submit">Filter</button>
+    </form>
+    {% endif %}
+</div>
 
 <!-- Collection Entries Column -->
 <div class="collection-summary">
@@ -79,10 +85,20 @@
         {% endif %}
         {% endif %}
         {% empty %}
-        <p class="text-center mt-4">
-            You do not have any collections. Please create a collection.
-        </p>
+        <div class="no-collections text-center mt-4">
+            <p>You do not have any collections. Please create a collection.</p>
+            <div class="form create-collection">
+                <form action=" {% url 'create_collection' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-sm icon-button add-button"
+                        aria-label="Submit to create a new collection">
+                        <i class="fa-solid fa-plus icon"></i> Create a new collection
+                    </button>
+                </form>
+            </div>
+        </div>
         {% endfor %}
+
     </div>
 </div>
 
