@@ -28,7 +28,7 @@
 <!-- Filter collections based on theme -->
 <form method="get" class="filter">
     <label for="theme" class="filter-text">Filter by theme:</label>
-    <select id="theme" name="theme" aria-label="Filter by theme">
+    <select class="drop-down" id="theme" name="theme" aria-label="Filter by theme">
         <option value="">All Themes</option>
         {% for value, label in themes %}
         <option value="{{ value }}" {% if request.GET.theme == value %}selected{% endif %}>

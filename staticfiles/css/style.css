@@ -220,10 +220,6 @@ main {
     margin-right: 10px;
 }
 
-.filter > .action-button {
-    margin-left: 10px;
-}
-
 .collection-link {
     text-decoration: none;
     color: var(--primary-color);

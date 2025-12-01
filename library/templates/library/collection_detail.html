@@ -43,7 +43,7 @@
     <!-- Filter book based on author -->
     <form method="get" class="filter col-sm-6">
         <label for=" author" class="filter-text">Filter by author:</label>
-        <select name="author" id="author" title="authors">
+        <select class="drop-down" name="author" id="author" title="authors">
             <option value="">All Authors</option>
             {% for a in authors %}
             <option value="{{ a }}" {% if selected_author == a %}selected{% endif %}>
