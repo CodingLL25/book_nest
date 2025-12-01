@@ -33,16 +33,19 @@
 </div>
 
 <div class="additonal-forms row align-items-center">
+    {% if collection.books.exists %}
     <!-- Add Book Form -->
     <div class="col-sm-6">
         <a href="{% url 'add_book' collection.slug %}" aria-label="Go to the page for adding a book to this collection"
-            class="btn btn-sm icon-button add-button icon-button">
-            <i class="fa-solid fa-plus icon"></i>Add a book to your collection
+            class="btn btn-sm icon-button add-button">
+            <i class="fa-solid fa-plus icon"></i> Add a book to your collection
         </a>
     </div>
+
     <!-- Filter book based on author -->
+    {% if authors %}
     <form method="get" class="filter col-sm-6">
-        <label for=" author" class="filter-text">Filter by author:</label>
+        <label for="author" class="filter-text">Filter by author:</label>
         <select class="drop-down" name="author" id="author" title="authors">
             <option value="">All Authors</option>
             {% for a in authors %}
@@ -53,7 +56,11 @@
         </select>
         <button type="submit" class="filter-button">Filter</button>
     </form>
+    {% endif %}
+    {% endif %}
 </div>
+
+
 
 <!-- Book container -->
 <div class="book-summary container mt-4">
@@ -101,7 +108,16 @@
         </div>
         {% endfor %}
         {% else %}
-        <p>No books in this collection yet.</p>
+        <div class="no-books text-center mt-4">
+            <p>No books in this collection yet.</p>
+            <div class="form add-book">
+                <a href="{% url 'add_book' collection.slug %}"
+                    aria-label="Go to the page for adding a book to this collection"
+                    class="btn btn-sm icon-button add-button">
+                    <i class="fa-solid fa-plus icon"></i> Add your first book to this collection
+                </a>
+            </div>
+        </div>
         {% endif %}
     </div>
 </div>
