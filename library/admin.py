@@ -16,7 +16,6 @@ class TagFilter(SimpleListFilter):
     This filter adds a dropdown in the Book admin that allows
     filtering books by their associated tags.
     """
-
     title = "Tag"
     parameter_name = "tag"
 
@@ -34,7 +33,6 @@ class Collection(SummernoteModelAdmin):
     """
     Custom Django admin configuration for the Collection model.
     """
-
     list_display = ("name", "theme", "excerpt_clean")
     search_fields = ["theme", "excerpt"]
     list_filter = (TagFilter, "theme")
@@ -50,7 +48,6 @@ class Book(SummernoteModelAdmin):
     """
     Custom Django admin configuration for the Book model.
     """
-
     list_display = ("title", "author", "body_clean")
     search_fields = ["title", "author"]
     list_filter = (TagFilter, "author")
