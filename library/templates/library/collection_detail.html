@@ -79,13 +79,11 @@
                 <div class="card-body book-body">
                     <h4 class="card-title book-title h5">{{ book.title }}</h4>
                     <p class="tags mb-2">
-                        <p class="tags mb-2">
-                            {% for t in book.tag.all %}
-                            <span class="badge bg-secondary">{{ t.name }}</span>
-                            {% empty %}
-                            <span class="text-muted">No tags</span>
-                            {% endfor %}
-                        </p>
+                        {% for t in book.tag.all %}
+                        <span class="badge bg-secondary">{{ t.name }}</span>
+                        {% empty %}
+                        <span class="text-muted">No tags</span>
+                        {% endfor %}
                     </p>
                     <p class="card-text book-text mb-2">
                         {{ book.body|clean_html }}
