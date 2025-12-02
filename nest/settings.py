@@ -10,9 +10,11 @@ if os.path.isfile("env.py"):
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 
+# Secret key
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
-DEBUG = True
+# Debug
+DEBUG = False
 
 ALLOWED_HOSTS = [
     ".herokuapp.com",
