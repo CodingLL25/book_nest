@@ -71,6 +71,16 @@ main {
     background-color: rgba(217, 126, 71, 0.9);
 }
 
+.signout-button {
+    background-color: var(--danger);
+    color: white;
+}
+
+.signout-button:hover, .signout-button:focus {
+    background-color: rgb(99, 10, 10);
+    color: white;
+}
+
 .edit-button {
     background-color: var(--highlight);
     color: white;
@@ -126,7 +136,6 @@ main {
 .modal-buttons form {
     margin: 0; 
 }
-
 
 /* Base.html style */
 .navbar {

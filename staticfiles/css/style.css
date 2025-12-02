@@ -71,6 +71,17 @@ main {
     background-color: rgba(217, 126, 71, 0.9);
 }
 
+.signout-button {
+    background-color: rgba(99, 10, 10, 0.3);
+    border: 0px;
+    padding: 5px 20px;
+}
+
+.signout-button:hover, .signout-button:focus {
+    background-color: var(--danger);
+    color: white;
+}
+
 .edit-button {
     background-color: var(--highlight);
     color: white;
