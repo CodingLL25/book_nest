@@ -31,13 +31,18 @@ body {
 main {
     /* Main element to take up any surplus space to push footer down */
     flex: 1 0 auto;
+    width: 90%;
     max-width: 1399px;
     margin: 0 auto;
     position: relative;
-    padding: 15px;
+    padding: 10px;
 }
 
 /* Global styles */
+.collection-name {
+    text-align: center;
+}
+
 .warning-message, .errorlist, .logged-out {
     color: var(--danger)
 }
@@ -154,6 +159,7 @@ main {
 .heading, .action-form {
     background-color: rgba(214, 209, 202, 0.35);
     padding: 10px;
+    margin-bottom: 10px;
     text-align: center;
 }
 
