@@ -8,7 +8,6 @@ class Tag(models.Model):
     Stores a single tag with a unique slug.
     Each tag can be linked to many books.
     """
-
     name = models.CharField(
         max_length=100,
         null=False,
@@ -30,7 +29,6 @@ class Collection(models.Model):
     """
     Stores a single collection related to :model:`auth.User`.
     """
-
     THEME_CHOICES = [
         ("romance", "Romance"),
         ("fantasy", "Fantasy"),
@@ -47,7 +45,8 @@ class Collection(models.Model):
     ]
     name = models.CharField(max_length=100, unique=True, blank=False)
     excerpt = models.TextField(blank=True)
-    theme = models.CharField(max_length=50, choices=THEME_CHOICES, default="mixed")
+    theme = models.CharField(
+        max_length=50, choices=THEME_CHOICES, default="mixed")
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="collections", null=True
     )
@@ -67,7 +66,6 @@ class Book(models.Model):
     Stores a single book related to :model:`auth.User`
     and :model:`library.Collection`.
     """
-
     collection = models.ForeignKey(
         Collection, on_delete=models.CASCADE, related_name="books"
     )
