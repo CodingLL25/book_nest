@@ -1,6 +1,6 @@
-## Testing
-### Manual testing
-#### Navigation Bar (not logged in)
+# Testing
+## Manual testing
+### Navigation Bar (not logged in)
 The navigation bar allows the site user to navigate through the different pages of the site, either to the about page (home), collections page or sign in/sign up/log out page.
 | feature | action | expected result | tested | passed | comments |
 | --- | --- | --- | --- | --- | --- |
@@ -10,9 +10,7 @@ The navigation bar allows the site user to navigate through the different pages 
 | Register button in navigation| Click on "Register" in navbar| Takes you to the register page (if logged out) | Yes | Yes | - |
 | Login button in navigation| Click on "Login" in navbar| Takes you to the login page| Yes | Yes | - |
 
-![Navigation bar when not logged in](documentation/site-heading-and-navigation.jpg)
-
-#### Navigation Bar (logged in)
+### Navigation Bar (logged in)
 Amendmens to the navigation bar / site based on successful login.
 | feature | action | expected result | tested | passed | comments |
 | --- | --- | --- | --- | --- | --- |
@@ -20,15 +18,9 @@ Amendmens to the navigation bar / site based on successful login.
 | Login/Register buttons | Successful login | No longer shows "login" or "register" in navigation| Yes | Yes | - |
 | Logged into account | Successful login | Page confirms "You are logged in as X" | Yes | Yes | - |
 | Logged into account | Successful login | Success message appears confirming "succesfully signed in as X" | Yes | Yes | "You have signed out message also appearing" - error |
-| Collections button in navigation| Click on the "Collections" button| Takes you to the collections page if logged in| Yes | Yes | - |
+| Your Collections  button in navigation| Click on the "Collections" button| Takes you to the collections page if logged in| Yes | Yes | Did not highlight in navbar previously, amended during testing |
 
-Navigation bar when logged in:
-![Navigation bar when logged in](documentation/navigation-logged-in.jpg)
-
-Sign-in message appearing when successfully logging in:
-![Sign out error](documentation/sign-out-error.jpg)
-
-#### About page
+### About page
 The about page provides context on the site purpose, and shows three example collections (from the user = example)
 | feature | action | expected result | tested | passed | comments |
 | --- | --- | --- | --- | --- | --- |
@@ -39,9 +31,8 @@ The about page provides context on the site purpose, and shows three example col
 | Sign into your account button | Click on "Sign into your account" | Takes you to the login page | Yes | Yes | - |
 | View collection button | Hover over view colletion button| "Go to collection" popup | Yes | Yes | - |
 
-![About page](documentation/about-page.jpg)
 
-#### Sign-up for an account
+### Sign-up for an account
 | feature | action | expected result | tested | passed | comments |
 | --- | --- | --- | --- | --- | --- |
 | Sign-up | Enter a common password | Red error message appears | Yes | Yes | - |
@@ -49,21 +40,12 @@ The about page provides context on the site purpose, and shows three example col
 | Sign-up | Enter a numeric password only| Red error message appears | Yes | Yes | - |
 | Sign-up | Enter an existing username| Red error message appears | Yes | Yes | - |
 
-Error message for  password:
-![Error message for common password](documentation/password-error.jpg)
-
-Error message for username already exists:
-![Error message for username already exists](documentation/username-error.jpg)
-
-#### Sign-into your account
+### Sign-into your account
 | feature | action | expected result | tested | passed | comments |
 | --- | --- | --- | --- | --- | --- |
 | Sign-in | Enter incorrect username/password | Red error message appears | Yes | Yes | - |
 
-![Error message for incorrect username/password](documentation/sign-in-error.jpg)
-
-
-#### Collections 
+### Collections 
 | feature | action | expected result | tested | passed | comments |
 | --- | --- | --- | --- | --- | --- |
 | Filter | Select filter drop down| Drop down appears allowing you to filter | Yes | Yes | - |
@@ -75,23 +57,7 @@ Error message for username already exists:
 | Edit collections | Edit collections button selected | Takes you to edit collection form | Yes | Yes | - |
 | Collection cards | Click collection name | Takes you to the collection | Yes | Yes | Checked for each collection |
 
-Filters for user = example:
-![Filters for example user](documentation/theme-filter.jpg)
-
-Filtered collection by "Romance" for user = example:
-![Romance filter applied for example user](documentation/romance-fitler.jpg)
-
-Filter showing correctly when there are duplicate themes:
-![Filter without duplicate themes](documentation/theme-filter-check.jpg)
-
-Edit collection information:
-![Edit collection button](documentation/edit-collections-button.jpg)
-
-Collection:
-
-![Go to collection](documentation/go-to-collection.jpg)
-
-#### Collections form
+### Collections form
 | feature | action | expected result | tested | passed | comments |
 | --- | --- | --- | --- | --- | --- |
 | Edit collections button  | Edit collection button selected | Redirected to edit collection form | Yes | Yes | - |
@@ -100,18 +66,7 @@ Collection:
 | Edit collections form | Save new collection detail information | Redirected to collection detail page | Yes | Yes | Redirect to home page initially|
 | Save | Save updates | Success message appears for edit collection | Yes | Yes | Originally did not show, rendered in view and font-color changed to green. |
 
-Pre-populated form based on "edit collection" selected for "time to grow"
-![Edit collection form](documentation/edit-collections-form.jpg)
-
-Updated title for collection detail:
-![Edit collection form](documentation/updated-collection-title-form.jpg)
-![Edit collection form](documentation/updated-collection-title.jpg)
-
-Success message for edit collection
-![Success message - edit collection](documentation/edit-collection-success.jpg)
-
-
-#### Collection detail
+### Collection detail
 | feature | action | expected result | tested | passed | comments |
 | --- | --- | --- | --- | --- | --- |
 | Edit book button | Edit book button selected | Redirected to edit book form| Yes | Yes | - |
@@ -130,88 +85,102 @@ Success message for edit collection
 | Delete collection modal | Yes, delete selected | Redirected to collection page with collection deleted | Yes | Yes | - |
 | Yes, delete  | Yes, delete selected in modal for collection| Success message appears confirming deletion of collection| Yes | Yes | - |
 | Filter  | Filter by author |Show dropdown list of authors| Yes | Yes | Showed duplicate authors previously, fixed during testing |
-
-Add book form:
-![Add book form](documentation/add-book-form.jpg)
-
-Add book success:
-![Add book success](documentation/add-book-success.jpg)
-
-Delete book modal:
-![Delete book modal](documentation/delete-book-modal.jpg)
-
-Delete book confirmation:
-![Delete book confirmation](documentation/delete-book-confirmation.jpg)
-
-Edit book form pre-populated:
-![Edit book form](documentation/edit-book-example.jpg)
+| Book card  | None | Show book author| Yes | Yes | - |
+| Book card  | None | Show book title | Yes | Yes | - |
+| Book card  | None | Show book tags | Yes | Yes | Previously did not show tags for users i.e. showed "no tag" |
+| Book card  | None | Show book status | Yes | Yes | - |
 
 Book filter with duplicates:
-![Book filter with duplicates](documentation/book-filter-duplicates.jpg)
+![Book filter with duplicates](documentation/testing/book-filter-duplicates.jpg)
 
 Amended book filter without duplicates:
-![Amended book filter - no duplicates](documentation/book-filter.jpg)
+![Amended book filter - no duplicates](documentation/testing/book-filter.jpg)
 
 
-### HTML Validator Testing 
-#### About page / Home page validation
-- HTML: three errors noted intiially when passing about.html source through validation. No errors were returned when passing through the official W3C validator prior to submission.
+## HTML Validator Testing 
+Code was validated using [W3C Validator](https://validator.w3.org/)
 
-Initial validation checks:
-![Validation results from W3C - About/Home page checks](documentation/about-checks.jpg)
+### About page / Home page validation
+- No errors were returned when passing through the official W3C validator prior to submission.
 
-Final validation checks:
-![Validation results from W3C - About/Home page validation](documentation/about-html-validation.jpg)
+![Validation results from W3C - About/Home page](documentation/validation/html/about-validation.jpg)
 
-#### Register page
-- HTML: four errors 
+### Register page
+- Four errors noted when passing through the official W3C validator. Relating to Django Allauth.
+![Validation results from W3C - Register page](documentation/validation/html/about-validation.jpg)
 
-
-#### Login page
-- HTML: one trailing slash noted during intial validation checks. No errors were returned when passing through the official W3C validator prior to submission.
-
-Initial validation checks:
-![Validation results from W3C - Login checks](documentation/login-html-check.jpg)
-
-Final validation checks:
-![Validation results from W3C - Login validation](documentation/login-html-validation.jpg)
-
-
-#### Collections
-- HTML: three errors noted intiially when passing source code through validation. No errors were returned when passing through the official W3C validator prior to submission.
-
-Initial validation checks:
-![Validation results from W3C - Collections checks](documentation/collections-html-check.jpg)
-![Validation results from W3C - Collections checks](documentation/repeat-collections-html-check.jpg)
-
-Final validation checks:
-![Validation results from W3C - Collections validation](documentation/collections-html-validation.jpg)
-
-#### Create collection
+### Login page
 - HTML: No errors were returned when passing through the official W3C validator prior to submission.
 
-![Validation results from W3C - Create collection](documentation/create-collection-validation.jpg)
+![Validation results from W3C - Login checks](documentation/validation/html/login-validation.jpg)
 
-
-#### Collection detail
+### Collections
 - HTML: No errors were returned when passing through the official W3C validator prior to submission.
 
-![Validation results from W3C - Collection detail](documentation/collection-detail-validation.jpg)
+![Validation results from W3C - Collections checks](documentation/validation/html/collections-validation.jpg)
 
-#### Add book to collection
+### Create collection
+- HTML: No errors were returned when passing through the official W3C validator prior to submission.
+
+![Validation results from W3C - Create collection](documentation/validation/html/create-collection-validation.jpg)
+
+### Delete collection
+- HTML: No errors were returned when passing through the official W3C validator prior to submission.
+
+![Validation results from W3C - Delete collection](documentation/validation/html/delete-collection-validation.jpg)
+
+### Collection detail
+- HTML: No errors were returned when passing through the official W3C validator prior to submission.
+
+![Validation results from W3C - Collection detail](documentation/validation/html/collection-detail-validation.jpg)
+
+### Add book to collection
 - HTML: No errors were returned when passing through the official W3C validator prior to submission.
 
 Add book validation:
-![Validation results from W3C - Add book](documentation/add-book-validation.jpg)
+![Validation results from W3C - Add book](documentation/validation/html/add-book-validation.jpg)
 
-#### Edit book in collection
+### Edit book in collection
 - HTML: No errors were returned when passing through the official W3C validator prior to submission.
-![Validation results from W3C - Edit book](documentation/edit-book-validation.jpg)
+![Validation results from W3C - Edit book](documentation/validation/html/edit-book-validation.jpg)
 
+### Delete book in collection
+- HTML: No errors were returned when passing through the official W3C validator prior to submission.
+![Validation results from W3C - Delete book](documentation/validation/html/delete-book-validation.jpg)
 
-### CSS Validator testing
+## CSS Validator Testing
+Code was validated using the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator)
+
 Two warnings with CSS validation by direct input:
 - Imported style sheets are not checked in direct input and file upload modes
 - Due to their dynamic nature, CSS variables are currently not statically checked
 
-![CSS validation](documentation/css-validation-direct-input.jpg)
+![CSS validation](documentation/validation/css/css-validation.jpg)
+
+## Python Validator Testing
+Code was validated using [CI Python Linter](https://pep8ci.herokuapp.com/).
+### Library App
+#### admin.py validation
+No errors were returned when passing through CI Python Linter.
+![Library admin validation - python ](documentation/validation/python/admin-validation.jpg)
+
+####  apps.py validation
+No errors were returned when passing through CI Python Linter.
+![Library app validation - python ](documentation/validation/python/apps-validation.jpg)
+
+####  forms.py validation
+No errors were returned when passing through CI Python Linter.
+![Library form validation - python ](documentation/validation/python/forms-validation.jpg)
+
+#### models.py validation
+No errors were returned when passing through CI Python Linter.
+![Library models validation - python ](documentation/validation/python/models-validation.jpg)
+
+#### views.py validation
+No errors were returned when passing through CI Python Linter.
+![Library views validation - python ](documentation/validation/python/views-validation.jpg)
+
+#### urls.py validation
+No errors were returned when passing through CI Python Linter.
+![Library models validation - python ](documentation/validation/python/urls-validation.jpg)
+
