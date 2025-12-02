@@ -67,8 +67,7 @@ def example_collection_details(request, slug):
     """
     Function to show relevant collection details for logged in user
     """
-    collection = get_object_or_404(
-        Collection, slug=slug, user__username="Example")
+    collection = get_object_or_404(Collection, slug=slug, user__username="Example")
     books = collection.books.all()
 
     return render(
@@ -89,8 +88,7 @@ def collection_detail(request, slug):
     collection = get_object_or_404(Collection, slug=slug, user=request.user)
     books = collection.books.all()
 
-    authors = books.values_list(
-        "author", flat=True).distinct().order_by("author")
+    authors = books.values_list("author", flat=True).distinct().order_by("author")
     author = request.GET.get("author")
     if author:
         books = books.filter(author=author)
@@ -133,9 +131,7 @@ def edit_collection(request, slug):
     collection = get_object_or_404(Collection, slug=slug)
 
     if collection.user != request.user:
-        return HttpResponseForbidden(
-            "You are not allowed to edit this collection."
-        )
+        return HttpResponseForbidden("You are not allowed to edit this collection.")
 
     if request.method == "POST":
         collection_form = CollectionForm(request.POST, instance=collection)
@@ -180,6 +176,7 @@ def add_book(request, slug):
             book = form.save(commit=False)
             book.collection = collection
             book.save()
+            form.save_m2m()
             messages.success(request, f'Book "{book.title}" has been added!')
             return redirect("collection_detail", slug=collection.slug)
     else:
@@ -238,9 +235,7 @@ def delete_book(request, slug, book_id):
     book = get_object_or_404(Book, pk=book_id)
 
     if collection.user != request.user:
-        return HttpResponseForbidden(
-            "You are not allowed to delete this book."
-        )
+        return HttpResponseForbidden("You are not allowed to delete this book.")
     if request.method == "POST":
         book.delete()
         messages.error(request, f'Book "{book.title}" has been deleted!')
@@ -265,16 +260,10 @@ def delete_collection(request, slug):
     collection = get_object_or_404(Collection, slug=slug)
 
     if collection.user != request.user:
-        return HttpResponseForbidden(
-            "You are not allowed to delete this collection."
-        )
+        return HttpResponseForbidden("You are not allowed to delete this collection.")
     if request.method == "POST":
         collection.delete()
-        messages.error(
-            request, f'Collection "{collection.name}" has been deleted!'
-        )
+        messages.error(request, f'Collection "{collection.name}" has been deleted!')
         return redirect("collections")
 
-    return render(
-        request, "library/delete_collection.html", {"collection": collection}
-    )
+    return render(request, "library/delete_collection.html", {"collection": collection})
