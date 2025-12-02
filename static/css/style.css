@@ -32,7 +32,7 @@ main {
     /* Main element to take up any surplus space to push footer down */
     flex: 1 0 auto;
     max-width: 1399px;
-    margin: 0% 5%;
+    margin: 0 auto;
     position: relative;
     padding-bottom: 20px;
 }
