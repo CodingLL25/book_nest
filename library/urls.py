@@ -10,7 +10,8 @@ urlpatterns = [
         views.example_collection_details,
         name="example_collection_details",
     ),
-    path("collection/<slug:slug>/", views.collection_detail, name="collection_detail"),
+    path("collection/<slug:slug>/",
+         views.collection_detail, name="collection_detail"),
     path("create/", views.create_collection, name="create_collection"),
     path(
         "collection/<slug:slug>/edit_collection/",
