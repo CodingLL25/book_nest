@@ -96,6 +96,17 @@ Book filter with duplicates:
 Amended book filter without duplicates:
 ![Amended book filter - no duplicates](documentation/testing/book-filter.jpg)
 
+## Automatic Testing
+### Django unit testing
+At the end of the project, I utilized Django's built-in unit testing framework (command: python manage.py test <name>). This framework was used for views and forms. Addtional testing was not undertaken for Django's Allauth signin / signout or models.
+
+#### Book and Collection Form
+- Automatic testing for the collection and book form to check valid and invalid input
+![Validation results - Book and Collection Form](documentation/testing/automatic-testing-forms.jpg)
+
+#### URLs
+- Automatic testing for collection detail, edit collection, delete collection, add book, edit book and delete book
+![Validation results - URLs](documentation/testing/automatic-testing-urls.jpg)
 
 ## HTML Validator Testing 
 Code was validated using [W3C Validator](https://validator.w3.org/)
@@ -182,5 +193,12 @@ No errors were returned when passing through CI Python Linter.
 
 #### urls.py validation
 No errors were returned when passing through CI Python Linter.
-![Library models validation - python ](documentation/validation/python/urls-validation.jpg)
+![Library urls validation - python ](documentation/validation/python/urls-validation.jpg)
 
+#### test_forms.py validation
+No errors were returned when passing through CI Python Linter.
+![Library test forms validation - python ](documentation/validation/python/tests-form-validation.jpg)
+
+#### urls.py validation
+No errors were returned when passing through CI Python Linter.
+![Library test urls validation - python ](documentation/validation/python/tests-urls-validation.jpg)
