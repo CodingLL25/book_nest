@@ -32,14 +32,16 @@ class TestBookForm(TestCase):
     of Book instances with tags.
     """
     def setUp(self):
-        # Create a user and a collection for the book
+        """
+        Create a user and a collection for the book.
+        Add tags.
+        """
         self.user = User.objects.create(username="tester")
         self.collection = Collection.objects.create(
             name="Test Collection",
             theme="romance",
             user=self.user,
         )
-        # Add tags
         self.tag1 = Tag.objects.create(name="Feel Good")
         self.tag2 = Tag.objects.create(name="Funny")
 

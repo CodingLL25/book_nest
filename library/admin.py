@@ -12,7 +12,6 @@ def clean_html(text):
 class TagFilter(SimpleListFilter):
     """
     Custom list filter for the Django admin interface.
-
     This filter adds a dropdown in the Book admin that allows
     filtering books by their associated tags.
     """

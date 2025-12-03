@@ -14,10 +14,13 @@ class AboutPage(TemplateView):
     """
     Class based view to show about page.
     """
-
     template_name = "library/about.html"
 
     def get_context_data(self, **kwargs):
+        """
+        Adds a queryset of collections belonging to the user 'Example'
+        so they can be shown.
+        """
         context = super().get_context_data(**kwargs)
         context["example_collections"] = Collection.objects.filter(
             user__username="Example"
@@ -30,36 +33,38 @@ class CollectionList(LoginRequiredMixin, generic.ListView):
     Function to show relevant collections logged in user.
     Allow user to filter by theme.
     """
-
     template_name = "library/index.html"
     context_object_name = "collection_list"
     paginate_by = 3
     model = Collection
 
     def get_queryset(self):
+        """
+        Return a queryset of collections belonging to the current user.
+        Filter by theme.
+        """
         queryset = Collection.objects.filter(user=self.request.user)
-
         theme = self.request.GET.get("theme")
         if theme:
             queryset = queryset.filter(theme=theme)
-
         return queryset
 
     def get_context_data(self, **kwargs):
+        """
+        Adds a new CollectionForm instance.
+        Returns themes from the user's collections.
+        """
         context = super().get_context_data(**kwargs)
         context["form"] = CollectionForm()
-
         theme_values = (
             Collection.objects.filter(user=self.request.user)
             .values_list("theme", flat=True)
             .distinct()
         )
-
         theme_dict = dict(Collection.THEME_CHOICES)
         context["themes"] = [
             (value, theme_dict.get(value, value)) for value in theme_values
         ]
-
         return context
 
 
@@ -87,12 +92,11 @@ def collection_detail(request, slug):
     """
     collection = get_object_or_404(Collection, slug=slug, user=request.user)
     books = collection.books.all()
-
     authors = books.values_list("author", flat=True).distinct().order_by("author")
     author = request.GET.get("author")
+
     if author:
         books = books.filter(author=author)
-
     return render(
         request,
         "library/collection_detail.html",
@@ -122,7 +126,6 @@ def create_collection(request):
             return redirect("collection_detail", slug=collection.slug)
     else:
         form = CollectionForm()
-
     return render(request, "library/create_collection.html", {"form": form})
 
 
@@ -132,7 +135,6 @@ def edit_collection(request, slug):
 
     if collection.user != request.user:
         return HttpResponseForbidden("You are not allowed to edit this collection.")
-
     if request.method == "POST":
         collection_form = CollectionForm(request.POST, instance=collection)
         if collection_form.is_valid():
@@ -169,7 +171,6 @@ def add_book(request, slug):
         return HttpResponseForbidden(
             "You are not allowed to add books to this collection."
         )
-
     if request.method == "POST":
         form = BookForm(request.POST)
         if form.is_valid():
@@ -181,7 +182,6 @@ def add_book(request, slug):
             return redirect("collection_detail", slug=collection.slug)
     else:
         form = BookForm()
-
     return render(
         request,
         "library/add_book.html",
@@ -201,7 +201,6 @@ def edit_book(request, slug, book_id):
         return HttpResponseForbidden(
             "You are not allowed to edit books in this collection."
         )
-
     if request.method == "POST":
         book_form = BookForm(request.POST, instance=book)
         if book_form.is_valid():
@@ -213,7 +212,6 @@ def edit_book(request, slug, book_id):
             return redirect("collection_detail", slug=slug)
     else:
         book_form = BookForm(instance=book)
-
     return render(
         request,
         "library/edit_book.html",
@@ -240,7 +238,6 @@ def delete_book(request, slug, book_id):
         book.delete()
         messages.error(request, f'Book "{book.title}" has been deleted!')
         return redirect("collection_detail", slug=collection.slug)
-
     return render(
         request,
         "library/delete_book.html",
@@ -265,5 +262,4 @@ def delete_collection(request, slug):
         collection.delete()
         messages.error(request, f'Collection "{collection.name}" has been deleted!')
         return redirect("collections")
-
     return render(request, "library/delete_collection.html", {"collection": collection})
