@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .forms import CollectionForm, BookForm
+from library.forms import CollectionForm, BookForm
 from django.contrib.auth.models import User
 from library.models import Collection, Tag
 
