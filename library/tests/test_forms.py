@@ -7,9 +7,10 @@ from library.models import Collection, Tag
 # Automatic testing
 class TestCollectionForm(TestCase):
     """
-    Automatic testing for collection from to check valid
+    Automatic testing for collection form to check valid
     and invalid input data.
     """
+
     def test_form_is_valid(self):
         user = User.objects.create(username="tester")
         data = {
@@ -31,6 +32,7 @@ class TestBookForm(TestCase):
     Unit tests for the BookForm to verify validation and saving
     of Book instances with tags.
     """
+
     def setUp(self):
         """
         Create a user and a collection for the book.
@@ -70,8 +72,7 @@ class TestBookForm(TestCase):
             "finished": False,
         }
         form = BookForm(data=data)
-        self.assertFalse(
-            form.is_valid(), msg="Form should be invalid without a title")
+        self.assertFalse(form.is_valid(), msg="Form should be invalid without a title")
 
     def test_form_saves_tags_correctly(self):
         """
