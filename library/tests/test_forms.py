@@ -72,7 +72,10 @@ class TestBookForm(TestCase):
             "finished": False,
         }
         form = BookForm(data=data)
-        self.assertFalse(form.is_valid(), msg="Form should be invalid without a title")
+        self.assertFalse(
+            form.is_valid(),
+            msg="Form should be invalid without a title"
+        )
 
     def test_form_saves_tags_correctly(self):
         """
