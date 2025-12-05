@@ -31,11 +31,11 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
-<body class="d-flex flex-column h-100 main-bg">
+<body>
     <header>
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
+            <div class="navbar-inner container">
                 <a class="home-nav navbar-brand" aria-label="Link to the home page" href="{% url 'home' %}">Book
                     Nest</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
@@ -76,21 +76,21 @@
                 </div>
             </div>
         </nav>
-        <section class="subheadings">
-            <div class="heading">
-                <h1>Book Nest - A Cosy corner for organising your books</h1>
-            </div>
-            <div class="account-confirmation">
-                {% if user.is_authenticated %}
-                <p class="account-text logged-in">You are logged in as {{ user }}</p>
-                {% else %}
-                <p class="account-text logged-out">You are not logged in</p>
-                {% endif %}
-            </div>
-        </section>
     </header>
 
-    <main class="flex-shrink-0 main-bg">
+    <section class="subheadings">
+        <h1 class="heading">Book Nest - A Cosy corner for organising your books</h1>
+        <div class="account-confirmation">
+            {% if user.is_authenticated %}
+            <p class="account-text logged-in">You are logged in as {{ user }}</p>
+            {% else %}
+            <p class="account-text logged-out">You are not logged in</p>
+            {% endif %}
+        </div>
+    </section>
+
+
+    <main>
         {% if messages %}
         <div class="container mt-3">
             {% for message in messages %}

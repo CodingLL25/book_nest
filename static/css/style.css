@@ -10,7 +10,6 @@
     --tertiary-color: rgb(65, 134, 129);
     --highlight: #A89382;
     --light-highlight: rgb(217, 126, 71);
-    --bright-highlight: #632a13;
     --danger: rgb(186, 38, 38);
     --confirmation: rgba(97, 159, 105);
     --cancel: rgb(225, 205, 147);
@@ -28,21 +27,22 @@ body {
     overflow-wrap: anywhere;
 }
 
+header {
+    width: 100%;
+}
+
 main {
     /* Main element to take up any surplus space to push footer down */
     flex: 1 0 auto;
-    width: 90%;
+    width: 100%;
     max-width: 1399px;
     margin: 0 auto;
     position: relative;
     padding: 10px;
 }
 
-/* Global styles */
-.collection-name {
-    text-align: center;
-}
 
+/* Warning messages */
 .warning-message, .errorlist, .logged-out {
     color: var(--danger)
 }
@@ -51,6 +51,7 @@ main {
     color: var(--confirmation)
 }
 
+/* Button styles */
 .icon-button > .icon {
     padding-right: 10px;
 }
@@ -142,7 +143,7 @@ main {
     margin: 0; 
 }
 
-/* Base.html style */
+/* Global Styles */
 .navbar {
     display: flex;
     width: 100%;
@@ -150,8 +151,21 @@ main {
     padding: 10px;
 }
 
-.navbar > .account-nav {
-    justify-content: right;
+.navbar-inner {
+    width: 90%;
+    max-width: 1399px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.subheadings {
+    width:100%;
+    max-width: 1399px;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
 }
 
 .heading, .action-form {
@@ -161,17 +175,20 @@ main {
     text-align: center;
 }
 
-.account-text {
-    height: 25px;
-    padding-right: 20px;
+.account-confirmation {
     text-align: right;
+}
+
+.collection-name {
+    text-align: center;
 }
 
 .footer {
     width: 100%;
     background-color: var(--primary-color);
     color: white;
-    text-align:  center;
+    text-align: center;
+    padding: 10px;
 }
 
 .github {
@@ -180,11 +197,11 @@ main {
     font-size: small;
 }
 
-
 /* about.html style */
 .overview {
     text-align: center;
 }
+
 .cover-image {
     background: url("../images/home-library.jpg") no-repeat center center/cover;
     width: 100%;
@@ -235,10 +252,6 @@ main {
 }
 
 /* collection_detail.html styles */
-.collection-name {
-    text-align: center;
-}
-
 .delete-icon {
     padding: 2px 5px;   
 }
