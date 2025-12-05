@@ -168,6 +168,9 @@ Two warnings with CSS validation by direct input:
 
 ![CSS validation](documentation/validation/css/css-validation.jpg)
 
+Note, this was before final amends were made to the code. I was unable to re-validate due to a 500 error:
+![CSS validation - 500 error](documentation/validation/css/css-500-error.jpg)
+
 ## Python Validator Testing
 Code was validated using [CI Python Linter](https://pep8ci.herokuapp.com/).
 ### Library App
