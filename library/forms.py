@@ -23,5 +23,5 @@ class BookForm(forms.ModelForm):
         model = Book
         fields = ("title", "author", "body", "finished", "tag")
         help_texts = {
-            "tag": "CTRL-click to select multiple tags",
+            "tag": "Control-click or command-click to select multiple tags",
         }

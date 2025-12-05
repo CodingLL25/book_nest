@@ -73,7 +73,6 @@ class Book(models.Model):
     author = models.CharField(max_length=100, blank=False)
     body = models.TextField()
     finished = models.BooleanField(default=False)
-    created_on = models.DateTimeField(auto_now_add=True)
     tag = models.ManyToManyField(Tag, related_name="books")
 
     def __str__(self):
