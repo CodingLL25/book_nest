@@ -37,7 +37,7 @@
 <div class="additonal-forms row align-items-center">
     {% if collection.books.exists %}
     <!-- Add Book Form -->
-    <div class="col-sm-6">
+    <div class="create-book col-sm-6">
         <a href="{% url 'add_book' collection.slug %}" aria-label="Go to the page for adding a book to this collection"
             class="btn btn-sm icon-button add-button">
             <i class="fa-solid fa-plus icon"></i> Add a book to your collection
@@ -61,8 +61,6 @@
     {% endif %}
     {% endif %}
 </div>
-
-
 
 <!-- Book container -->
 <div class="book-summary container mt-4">

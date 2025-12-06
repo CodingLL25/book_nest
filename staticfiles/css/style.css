@@ -226,7 +226,14 @@ main {
 }
 
 /* index.html style */
-.filter {
+.additonal-forms {
+    margin: 0 auto;
+    max-width: 100%;
+    max-width: 1399px;
+    padding: 10px;
+}
+
+.filter, .create-collection,.create-book {
     display: flex;
     justify-content: center;
     align-items: center;
