@@ -80,6 +80,8 @@ main {
 .signout-button {
     background-color: var(--danger);
     color: white;
+    border: 0px;
+    padding: 10px 15px;
 }
 
 .signout-button:hover, .signout-button:focus {
